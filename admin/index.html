@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Estrada Admin — Website Content Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#13141a;--asphalt:#1a1c22;--asphalt2:#23252d;--red:#a40e18;--red-b:#c61830;--concrete:#ecebe7;--paper:#fff;--steel:#5d626b;--steel2:#8a8f98;--line:rgba(19,20,26,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Barlow',sans-serif;background:#f5f4f1;color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,button,.label{font-family:'Archivo',sans-serif}
+.label{text-transform:uppercase;letter-spacing:.2em;font-weight:700;font-size:.68rem;color:var(--red)}
+.topbar{background:var(--asphalt);color:#fff;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.topbar h1{font-size:1.05rem;font-weight:800;letter-spacing:-.01em}
+.topbar h1 em{color:var(--red-b);font-style:normal}
+.topbar .st{font-size:.8rem;color:#9aa0a8}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 24px 80px}
+.grid{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.tabs{display:flex;flex-direction:column;gap:2px;position:sticky;top:20px}
+.tab{background:var(--paper);border:1px solid var(--line);border-left:3px solid transparent;padding:12px 16px;text-align:left;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;color:var(--steel)}
+.tab.active{border-left-color:var(--red);color:var(--ink);background:#fff}
+.panel{background:var(--paper);border:1px solid var(--line);padding:28px}
+.panel h2{font-size:1.3rem;font-weight:900;margin-bottom:4px}
+.panel .sub{color:var(--steel);font-size:.9rem;margin-bottom:22px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.frow{grid-template-columns:1fr}}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--steel);margin-bottom:6px;font-family:'Archivo'}
+.field input,.field textarea,.field select{width:100%;padding:11px 12px;border:1px solid var(--line);font:inherit;font-size:.94rem;background:#fbfaf8}
+.field textarea{min-height:84px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:2px solid var(--red);outline-offset:-1px}
+.hint{font-size:.78rem;color:var(--steel2);margin-top:5px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;padding:12px 20px;border:none;cursor:pointer;background:var(--red);color:#fff}
+.btn:hover{background:var(--red-b)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.small{padding:8px 12px;font-size:.66rem}
+.btn.danger{background:transparent;color:var(--red);border:1.5px solid rgba(164,14,24,.35)}
+.item{border:1px solid var(--line);border-left:3px solid var(--red);padding:18px;margin-bottom:16px;background:#fbfaf8;position:relative}
+.item .rm{position:absolute;top:12px;right:12px}
+.addrow{margin-top:6px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;align-items:center}
+.note{background:#fdf6e9;border:1px solid #e8d9b5;padding:14px 16px;font-size:.85rem;color:#6b5518;margin-bottom:22px}
+.note b{font-family:'Archivo'}
+.ok{background:#e9f7ee;border:1px solid #bfe3cc;color:#1d5c34;padding:12px 16px;font-size:.85rem;margin-bottom:18px;display:none}
+#gate{position:fixed;inset:0;background:var(--asphalt);display:flex;align-items:center;justify-content:center;z-index:99}
+#gate .card{background:#fff;padding:44px 40px;max-width:400px;width:92%}
+#gate h2{font-weight:900;font-size:1.35rem}
+#gate p{color:var(--steel);font-size:.88rem;margin:10px 0 18px}
+#gate input{width:100%;padding:12px;border:1px solid var(--line);font:inherit;margin-bottom:12px}
+#gate .err{color:var(--red);font-size:.82rem;display:none;margin-bottom:10px}
+.check{display:flex;align-items:center;gap:8px;font-size:.88rem;margin-bottom:14px}
+.check input{width:auto}
+footer{max-width:1180px;margin:0 auto;padding:0 24px 40px;color:var(--steel2);font-size:.78rem}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="card">
+    <span class="label">Estrada Concrete — Admin</span>
+    <h2 style="margin-top:10px">Enter access PIN</h2>
+    <p>This PIN keeps casual visitors out. For real security, protect this /admin path with Cloudflare Access (free) — instructions are in the README.</p>
+    <div class="err" id="gate-err">Incorrect PIN — try again.</div>
+    <input type="password" id="pin" placeholder="PIN" autofocus>
+    <button class="btn" style="width:100%;justify-content:center" onclick="checkPin()">Unlock</button>
+  </div>
+</div>
+
+<div class="topbar">
+  <h1>Estrada <em>Admin</em> — Website Content Manager</h1>
+  <div class="st" id="loadstate">No data loaded</div>
+</div>
+
+<div class="wrap">
+  <div class="note"><b>How this works:</b> edit content below → click <b>Download site-data.json</b> → replace the file inside your site's <b>content/</b> folder → re-upload the whole site folder to Cloudflare Pages (Workers &amp; Pages → your project → Create new deployment). Changes go live in seconds. Nothing here changes the live site until you re-deploy.</div>
+  <div class="ok" id="okmsg">site-data.json downloaded — drop it into the content/ folder and re-deploy.</div>
+
+  <div class="toolbar">
+    <button class="btn ghost" onclick="loadFromSite()">↻ Reload from live site</button>
+    <label class="btn ghost" style="cursor:pointer">Open JSON file… <input type="file" accept=".json" style="display:none" onchange="loadFromFile(this)"></label>
+    <button class="btn" onclick="download()">⬇ Download site-data.json</button>
+  </div>
+
+  <div class="grid">
+    <div class="tabs" id="tabs"></div>
+    <div class="panel" id="panel"></div>
+  </div>
+</div>
+<footer>Estrada Concrete Company LLC — internal tool. This page does not talk to any server; all edits stay on your device until you deploy.</footer>
+
+<script>
+/* ---------- PIN gate (obfuscation only — see README for Cloudflare Access) ---------- */
+const PIN_HASH = 1383749790; /* default PIN: estrada75141 — to change it, see "Changing the admin PIN" in README.txt */
+function hash(s){let h=0;for(let i=0;i<s.length;i++){h=((h<<5)-h+s.charCodeAt(i))|0}return h}
+function checkPin(){
+  if(hash(document.getElementById('pin').value)===PIN_HASH){document.getElementById('gate').style.display='none';sessionStorage.adminOK='1';}
+  else document.getElementById('gate-err').style.display='block';
+}
+document.getElementById('pin').addEventListener('keydown',e=>{if(e.key==='Enter')checkPin()});
+if(sessionStorage.adminOK==='1')document.getElementById('gate').style.display='none';
+
+/* ---------- state ---------- */
+let D=null;
+const BLANK={company:{name:"",phone:"",email:"",emailDisplay:"",street:"",city:"",state:"TX",zip:""},
+seo:{siteUrl:"",title:"",description:"",ogTitle:"",ogDescription:""},
+form:{endpoint:"",subject:""},stats:[],projects:[],references:[],
+safety:{title:"",lead:"",credentials:[]},careers:{lead:"",jobs:[]}};
+
+function setState(txt){document.getElementById('loadstate').textContent=txt}
+function loadFromSite(){
+  fetch('../content/site-data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw 0;return r.json()})
+  .then(j=>{D=Object.assign(structuredClone(BLANK),j);setState('Loaded from live site ✓');render();})
+  .catch(()=>{if(!D){D=structuredClone(BLANK);render();}
+    setState('Could not fetch site-data.json (normal if opened as a local file) — use "Open JSON file…"');});
+}
+function loadFromFile(inp){
+  const f=inp.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{try{D=Object.assign(structuredClone(BLANK),JSON.parse(r.result));setState('Loaded from '+f.name+' ✓');render();}
+    catch(e){alert('That file is not valid JSON: '+e.message)}};
+  r.readAsText(f);
+}
+function download(){
+  if(!D)return;
+  D._comment="Edit this file with the Admin Dashboard (admin/index.html). After saving, replace this file in the content/ folder and re-upload the site folder to Cloudflare Pages.";
+  const blob=new Blob([JSON.stringify(D,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='site-data.json';a.click();
+  const ok=document.getElementById('okmsg');ok.style.display='block';setTimeout(()=>ok.style.display='none',6000);
+}
+
+/* ---------- UI ---------- */
+const TABS=[['company','Company Info'],['seo','SEO & Meta'],['form','Bid Form'],['stats','Stats Band'],['projects','Projects'],['references','References'],['safety','Safety & Prequal'],['careers','Careers']];
+let active='company';
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function fld(label,path,val,{type='input',hint='',ph=''}={}){
+  const t=type==='area'?`<textarea data-path="${path}" placeholder="${esc(ph)}">${esc(val)}</textarea>`
+    :`<input type="text" data-path="${path}" value="${esc(val)}" placeholder="${esc(ph)}">`;
+  return `<div class="field"><label>${label}</label>${t}${hint?`<div class="hint">${hint}</div>`:''}</div>`;
+}
+function get(o,p){return p.split('.').reduce((a,k)=>a?.[/^\d+$/.test(k)?+k:k],o)}
+function set(o,p,v){const ks=p.split('.');let cur=o;for(let i=0;i<ks.length-1;i++){cur=cur[/^\d+$/.test(ks[i])?+ks[i]:ks[i]]}cur[/^\d+$/.test(ks.at(-1))?+ks.at(-1):ks.at(-1)]=v}
+function bindInputs(){
+  document.querySelectorAll('#panel [data-path]').forEach(el=>{
+    el.addEventListener('input',()=>{
+      let v=el.value;
+      if(el.dataset.bool)v=el.checked;
+      set(D,el.dataset.path,v);
+    });
+    if(el.dataset.bool)el.addEventListener('change',()=>set(D,el.dataset.path,el.checked));
+  });
+}
+function render(){
+  const tabsEl=document.getElementById('tabs');
+  tabsEl.innerHTML=TABS.map(([id,l])=>`<button class="tab ${id===active?'active':''}" onclick="active='${id}';render()">${l}</button>`).join('');
+  const P=document.getElementById('panel');
+  if(!D){P.innerHTML='<p>Loading…</p>';return;}
+  const c=D.company,s=D.seo,f=D.form;
+  const views={
+  company:()=>`<h2>Company Info</h2><div class="sub">Feeds the contact section, footer, structured data, and every phone/email link on the site.</div>
+    ${fld('Company name','company.name',c.name)}
+    <div class="frow">${fld('Phone (display format)','company.phone',c.phone,{ph:'(972) 685-5477'})}
+    ${fld('Public display email','company.emailDisplay',c.emailDisplay,{hint:'Shown on the page (e.g. bids@…)'})}</div>
+    ${fld('Delivery email (real inbox)','company.email',c.email,{hint:'Where prequal/careers mailto links actually go. The bid form destination is set on the Bid Form tab.'})}
+    <div class="frow">${fld('Street','company.street',c.street)}${fld('City','company.city',c.city)}</div>
+    <div class="frow">${fld('State','company.state',c.state)}${fld('ZIP','company.zip',c.zip)}</div>`,
+  seo:()=>`<h2>SEO & Meta Tags</h2><div class="sub">Controls the browser title, Google snippet, link previews, and canonical URL.</div>
+    ${fld('Site URL (canonical)','seo.siteUrl',s.siteUrl,{ph:'https://www.estradaconcrete.com/'})}
+    ${fld('Title tag','seo.title',s.title,{hint:'Aim for ≤ 60 characters. Current: '+(s.title||'').length})}
+    ${fld('Meta description','seo.description',s.description,{type:'area',hint:'Aim for 150–160 characters. Current: '+(s.description||'').length})}
+    ${fld('Social share title (og:title)','seo.ogTitle',s.ogTitle)}
+    ${fld('Social share description (og:description)','seo.ogDescription',s.ogDescription,{type:'area'})}`,
+  form:()=>`<h2>Bid Request Form</h2><div class="sub">The form posts to FormSubmit. After your first live submission you'll get an activation email containing a random <b>alias</b> — paste the alias endpoint here so your address isn't visible in the page source.</div>
+    ${fld('Form endpoint','form.endpoint',f.endpoint,{ph:'https://formsubmit.co/ajax/YOUR-ALIAS',hint:'Format: https://formsubmit.co/ajax/&lt;email or alias&gt;'})}
+    ${fld('Email subject line','form.subject',f.subject)}`,
+  stats:()=>`<h2>Stats Band</h2><div class="sub">The four big numbers under "Why Estrada". Replace placeholders with real figures (years in business, CY placed, projects completed, crew count).</div>
+    ${D.stats.map((st,i)=>`<div class="item"><button class="btn danger small rm" onclick="D.stats.splice(${i},1);render()">Remove</button>
+      <div class="frow">${fld('Big value','stats.'+i+'.value',st.value,{ph:'e.g. 15+'})}
+      <div class="field"><label>Highlight in red?</label><div class="check"><input type="checkbox" data-path="stats.${i}.highlight" data-bool="1" ${st.highlight?'checked':''}> yes</div></div></div>
+      ${fld('Label','stats.'+i+'.label',st.label,{ph:'Years serving the DFW metroplex'})}</div>`).join('')}
+    <button class="btn ghost addrow" onclick="D.stats.push({value:'',highlight:false,label:''});render()">+ Add stat</button>`,
+  projects:()=>`<h2>Projects</h2><div class="sub">Your strongest sales tool. Include real quantities (CY, SF, LF) and the GC/owner. These replace the placeholder cards on the site.</div>
+    ${D.projects.map((p,i)=>`<div class="item"><button class="btn danger small rm" onclick="D.projects.splice(${i},1);render()">Remove</button>
+      <div class="frow">${fld('Project name','projects.'+i+'.name',p.name)}${fld('Sector','projects.'+i+'.sector',p.sector,{ph:'Municipal / Commercial / Industrial / Residential'})}</div>
+      <div class="frow">${fld('Location','projects.'+i+'.location',p.location,{ph:'Grand Prairie, TX'})}${fld('Client / GC','projects.'+i+'.client',p.client||'')}</div>
+      ${fld('Description','projects.'+i+'.description',p.description,{type:'area',ph:'Scope, quantities, schedule performance…'})}
+      ${fld('Scope tags (comma-separated)','projects.'+i+'._scopes',(p.scopes||[]).join(', '),{hint:'e.g. Paving, Underground, Grading'})}</div>`).join('')}
+    <button class="btn ghost addrow" onclick="D.projects.push({name:'',sector:'',location:'',client:'',description:'',scopes:[]});render()">+ Add project</button>`,
+  references:()=>`<h2>References</h2><div class="sub">Optional. Shown in a strip under the projects. Only publish contact details with the person's permission — many contractors list "available on request" instead.</div>
+    ${D.references.map((r,i)=>`<div class="item"><button class="btn danger small rm" onclick="D.references.splice(${i},1);render()">Remove</button>
+      <div class="frow">${fld('Name','references.'+i+'.name',r.name)}${fld('Company','references.'+i+'.company',r.company||'')}</div>
+      <div class="frow">${fld('Role / relationship','references.'+i+'.role',r.role||'',{ph:'Project Manager'})}${fld('Contact (phone/email) — optional','references.'+i+'.contact',r.contact||'',{ph:'Available on request'})}</div></div>`).join('')}
+    <button class="btn ghost addrow" onclick="D.references.push({name:'',company:'',role:'',contact:''});render()">+ Add reference</button>`,
+  safety:()=>`<h2>Safety & Prequalification</h2><div class="sub">What GCs check before inviting you to bid: EMR, insurance limits, bonding capacity, OSHA training, certifications (DBE/HUB/MBE if applicable), TxDOT prequalification.</div>
+    ${fld('Section headline','safety.title',D.safety.title)}
+    ${fld('Intro paragraph','safety.lead',D.safety.lead,{type:'area'})}
+    <h3 style="margin:18px 0 10px">Credential tiles</h3>
+    ${D.safety.credentials.map((x,i)=>`<div class="item"><button class="btn danger small rm" onclick="D.safety.credentials.splice(${i},1);render()">Remove</button>
+      <div class="frow">${fld('Big value','safety.credentials.'+i+'.value',x.value,{ph:'0.84 or $2M/$5M'})}${fld('Label','safety.credentials.'+i+'.label',x.label,{ph:'Experience Modifier Rate (EMR)'})}</div></div>`).join('')}
+    <button class="btn ghost addrow" onclick="D.safety.credentials.push({value:'',label:''});render()">+ Add credential</button>`,
+  careers:()=>`<h2>Careers</h2><div class="sub">Openings listed on the site. Applications arrive at the delivery email set on the Company Info tab. Delete all jobs to show a friendly "no openings" message instead.</div>
+    ${fld('Intro paragraph','careers.lead',D.careers.lead,{type:'area'})}
+    ${D.careers.jobs.map((j,i)=>`<div class="item"><button class="btn danger small rm" onclick="D.careers.jobs.splice(${i},1);render()">Remove</button>
+      ${fld('Job title','careers.jobs.'+i+'.title',j.title)}
+      ${fld('Short description','careers.jobs.'+i+'.description',j.description||'',{type:'area',ph:'Experience level, pay range, schedule…'})}</div>`).join('')}
+    <button class="btn ghost addrow" onclick="D.careers.jobs.push({title:'',description:''});render()">+ Add opening</button>`
+  };
+  P.innerHTML=views[active]();
+  bindInputs();
+  /* special: comma list -> scopes array */
+  document.querySelectorAll('[data-path$="._scopes"]').forEach(el=>{
+    el.addEventListener('input',()=>{
+      const i=+el.dataset.path.split('.')[1];
+      D.projects[i].scopes=el.value.split(',').map(x=>x.trim()).filter(Boolean);
+      delete D.projects[i]._scopes;
+    });
+  });
+}
+loadFromSite();
+</script>
+</body>
+</html>

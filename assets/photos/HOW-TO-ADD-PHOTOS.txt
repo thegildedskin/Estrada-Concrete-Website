@@ -1,0 +1,43 @@
+ESTRADA CONCRETE — HOW TO ADD YOUR OWN PHOTOS
+=============================================
+
+The website already looks complete using built-in illustrations.
+To upgrade it with REAL photos, just drop image files into THIS folder
+(assets/photos/) using the EXACT file names below. No code changes needed.
+
+If a photo file is missing, the site automatically falls back to the
+illustration — so you can add them one at a time.
+
+USE .jpg FILES. Keep each file under ~500 KB if possible (compress large photos).
+
+------------------------------------------------------------------
+FILE NAME              WHERE IT SHOWS                 BEST SIZE (px)
+------------------------------------------------------------------
+hero.jpg               Full-screen top banner         1920 x 1080  (landscape)
+paving.jpg             "Paving Built for Texas" panel 1600 x 1000  (landscape)
+utilities.jpg          "Underground Utilities" panel  1600 x 1000  (landscape)
+sitework.jpg           "Site Prep & Grading" panel    1600 x 1000  (landscape)
+
+cap-paving.jpg         Capabilities tab: Paving        1200 x 900
+cap-utilities.jpg      Capabilities tab: Utilities     1200 x 900
+cap-sitework.jpg       Capabilities tab: Site Prep     1200 x 900
+cap-concrete.jpg       Capabilities tab: Concrete      1200 x 900
+
+sector-municipal.jpg   Markets card: Municipal         900 x 1200   (portrait)
+sector-commercial.jpg  Markets card: Commercial        900 x 1200   (portrait)
+sector-residential.jpg Markets card: Residential       900 x 1200   (portrait)
+sector-industrial.jpg  Markets card: Industrial        900 x 1200   (portrait)
+------------------------------------------------------------------
+
+BEST RESULTS:
+- Use your OWN job-site photos (crews, equipment, finished pours/roads).
+  Real photos of your work will sell the business better than anything else.
+- Shoot landscape (wide) for hero/panels, portrait (tall) for the Markets cards.
+
+NO PHOTOS YET? Free images you are legally allowed to use commercially:
+- pexels.com  (search: "asphalt paving", "excavator trench", "concrete pour")
+- unsplash.com (search: "road construction", "construction site")
+- pixabay.com
+Download, rename to the file names above, and drop them in this folder.
+
+TIP: To compress photos for free, use squoosh.app or tinypng.com.

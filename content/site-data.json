@@ -1,0 +1,50 @@
+{
+  "_comment": "Edit this file with the Admin Dashboard (admin/index.html). After saving, replace this file in the content/ folder and re-upload the site folder to Cloudflare Pages.",
+  "company": {
+    "name": "Estrada Concrete Company LLC",
+    "phone": "(972) 685-5477",
+    "email": "m.luetge@estradaconcrete.com",
+    "emailDisplay": "bids@estradaconcrete.com",
+    "street": "650 Skyline Drive",
+    "city": "Hutchins",
+    "state": "TX",
+    "zip": "75141"
+  },
+  "seo": {
+    "siteUrl": "https://www.estradaconcrete.com/",
+    "title": "Estrada Concrete Company LLC | Heavy Civil & Concrete Contractor | Hutchins, TX",
+    "description": "Estrada Concrete Company LLC delivers self-performed heavy civil construction across the Dallas–Fort Worth metroplex — paving, underground utilities, site preparation, and concrete structures.",
+    "ogTitle": "Estrada Concrete — Self-Performed Heavy Civil, DFW",
+    "ogDescription": "Paving, underground utilities, site prep, and concrete structures. Self-performed across the DFW metroplex."
+  },
+  "form": {
+    "endpoint": "https://formsubmit.co/ajax/m.luetge@estradaconcrete.com",
+    "subject": "New bid request — estradaconcrete.com",
+    "_tip": "After the first live submission, FormSubmit emails you an activation link plus a random alias. Paste the alias endpoint here (https://formsubmit.co/ajax/YOUR-ALIAS) so your email address is no longer visible in the page source."
+  },
+  "stats": [
+    { "value": "100%", "highlight": true, "label": "Self-performed core scopes — no chasing subcontractors" },
+    { "value": "DFW", "highlight": false, "label": "Metroplex-wide coverage, North-Texas based and operated" },
+    { "value": "0", "highlight": true, "label": "Compromises on safety, compaction, or finish quality" },
+    { "value": "24/7", "highlight": false, "label": "Bid and project response for owners and general contractors" }
+  ],
+  "projects": [],
+  "references": [],
+  "safety": {
+    "title": "Built To Qualify.",
+    "lead": "Everything a general contractor or owner needs to prequalify Estrada — insurance, safety record, and capacity — in one place. Request our full prequalification package and we'll return it the same day.",
+    "credentials": [
+      { "value": "Licensed.", "label": "Licensed & insured in the State of Texas — COI issued on request" },
+      { "value": "EMR —", "label": "Experience Modifier Rate — add your current EMR in the admin panel" },
+      { "value": "—", "label": "Bonding capacity — add single / aggregate limits in the admin panel" },
+      { "value": "GL + Auto", "label": "General liability, auto & workers' comp coverage — limits on request" }
+    ]
+  },
+  "careers": {
+    "lead": "We hire operators, finishers, pipe crews, and foremen who take pride in the work. Steady DFW-area projects, self-performed scopes, and a crew that has your back.",
+    "jobs": [
+      { "title": "Equipment Operator", "description": "Sample listing — edit or remove openings in the Admin Dashboard." },
+      { "title": "Concrete Finisher", "description": "Sample listing — edit or remove openings in the Admin Dashboard." }
+    ]
+  }
+}
