@@ -281,28 +281,6 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 .reveal.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
-/* ---------- projects ---------- */
-.projects{padding:110px 0;background:var(--concrete-2)}
-.projects .head{max-width:640px;margin-bottom:54px}
-.projects .head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:900}
-.projects .head p{color:var(--steel);margin-top:14px}
-.pj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.pj{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;transition:.3s}
-.pj:hover{box-shadow:0 18px 44px rgba(19,20,26,.10);transform:translateY(-3px)}
-.pj .pj-top{background:var(--asphalt);color:#fff;padding:22px 24px;position:relative;overflow:hidden}
-.pj .pj-top::after{content:"";position:absolute;right:-24px;bottom:-24px;width:88px;height:88px;background:var(--red);opacity:.16;transform:rotate(45deg)}
-.pj .pj-sector{font-family:'Archivo';text-transform:uppercase;letter-spacing:.2em;font-size:.66rem;color:#ff5a64;font-weight:700}
-.pj h3{font-size:1.12rem;margin-top:8px;color:#fff}
-.pj .pj-loc{color:#9aa0a8;font-size:.85rem;margin-top:5px}
-.pj .pj-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:14px;flex:1}
-.pj .pj-desc{color:var(--steel);font-size:.95rem;line-height:1.6}
-.pj .pj-scope{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
-.pj .pj-scope span{font-family:'Archivo';font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--concrete);color:var(--ink);padding:6px 10px}
-.pj .pj-client{border-top:1px solid var(--line);padding-top:12px;font-size:.82rem;color:var(--steel-2)}
-.pj .pj-client b{color:var(--ink);font-weight:600}
-@media(max-width:960px){.pj-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.pj-grid{grid-template-columns:1fr}}
-
 /* ---------- safety / prequal ---------- */
 .safety{background:var(--asphalt);color:#fff;padding:104px 0;position:relative;overflow:hidden}
 .safety::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 42px,rgba(255,255,255,.02) 42px 84px)}
@@ -332,11 +310,21 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 .careers .none{color:var(--steel);border:1px dashed var(--line);padding:24px;font-size:.95rem}
 @media(max-width:900px){.careers .grid{grid-template-columns:1fr;gap:36px}}
 @media(max-width:560px){.job{flex-direction:column;align-items:flex-start}}
-/* ---------- background music toggle ---------- */
-#music-toggle{position:fixed;bottom:20px;left:20px;z-index:60;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(15,16,20,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s,transform .2s;box-shadow:0 4px 14px rgba(0,0,0,.25)}
-#music-toggle:hover{background:rgba(164,14,24,.9);transform:scale(1.06)}
-#music-toggle svg{display:block}
-@media (max-width:640px){#music-toggle{width:40px;height:40px;bottom:16px;left:16px}}
+
+/* ---------- subcontractors & vendors ---------- */
+.partners{padding:110px 0;background:var(--concrete-2)}
+.partners .head{max-width:680px;margin-bottom:54px}
+.partners .head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:900}
+.partners .head p{color:var(--steel);margin-top:14px;line-height:1.7}
+.pt-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.pt{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--red);padding:32px 30px;display:flex;flex-direction:column;gap:16px;transition:.3s}
+.pt:hover{box-shadow:0 18px 44px rgba(19,20,26,.10);transform:translateY(-3px)}
+.pt h3{font-size:1.25rem;font-weight:900}
+.pt p{color:var(--steel);font-size:.95rem;line-height:1.65}
+.pt .tags{display:flex;flex-wrap:wrap;gap:8px}
+.pt .tags span{font-family:'Archivo';font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--concrete);color:var(--ink);padding:6px 10px}
+.pt .tlink{margin-top:auto;padding-top:6px;font-size:.74rem}
+@media(max-width:820px){.pt-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -351,10 +339,10 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
       </a>
       <nav class="nav" id="nav">
         <a class="n" href="#capabilities">Capabilities</a>
-        <a class="n" href="#projects">Projects</a>
         <a class="n" href="#sectors">Sectors</a>
         <a class="n" href="#safety">Safety</a>
         <a class="n" href="#careers">Careers</a>
+        <a class="n" href="#partners">Subs &amp; Vendors</a>
         <a class="n" href="#contact">Connect</a>
         <a class="btn btn-red" href="#contact">Request a Bid</a>
       </nav>
@@ -630,47 +618,6 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
   </div>
 </section>
 
-<!-- ============ PROJECTS ============ -->
-<section class="projects" id="projects">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="label">Proven Work</span>
-      <h2 style="margin-top:14px">Recent Projects</h2>
-      <p>A sample of self-performed work across the metroplex. References and full project histories available on request.</p>
-    </div>
-    <div class="pj-grid" id="pj-grid">
-      <div class="pj reveal">
-        <div class="pj-top"><div class="pj-sector">Municipal</div><h3>Sample Project — Street Reconstruction</h3><div class="pj-loc">Dallas County, TX</div></div>
-        <div class="pj-body">
-          <div class="pj-desc">Placeholder project. Add your real projects — name, scope, quantities, and client — in the Admin Dashboard and they will replace these cards.</div>
-          <div class="pj-scope"><span>Paving</span><span>Utilities</span></div>
-          <div class="pj-client">Client: <b>Add via admin panel</b></div>
-        </div>
-      </div>
-      <div class="pj reveal d1">
-        <div class="pj-top"><div class="pj-sector">Commercial</div><h3>Sample Project — Site Package</h3><div class="pj-loc">DFW Metroplex</div></div>
-        <div class="pj-body">
-          <div class="pj-desc">Even three short case studies with real quantities (CY placed, SF paved, LF of pipe) will outsell any amount of copy. Add yours in the admin panel.</div>
-          <div class="pj-scope"><span>Site Prep</span><span>Concrete</span></div>
-          <div class="pj-client">Client: <b>Add via admin panel</b></div>
-        </div>
-      </div>
-      <div class="pj reveal d2">
-        <div class="pj-top"><div class="pj-sector">Industrial</div><h3>Sample Project — Underground Utilities</h3><div class="pj-loc">Hutchins, TX</div></div>
-        <div class="pj-body">
-          <div class="pj-desc">Placeholder project card. General contractors hire on proof — replace these with completed work as soon as possible.</div>
-          <div class="pj-scope"><span>Underground</span><span>Grading</span></div>
-          <div class="pj-client">Client: <b>Add via admin panel</b></div>
-        </div>
-      </div>
-    </div>
-    <div id="refs" style="display:none;margin-top:44px;border-top:1px solid var(--line);padding-top:28px">
-      <span class="label">References</span>
-      <div id="refs-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:16px"></div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ SECTORS ============ -->
 <section class="sectors" id="sectors">
   <div class="wrap">
@@ -746,17 +693,66 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
       <div class="reveal">
         <span class="label">Join The Crew</span>
         <h2>Careers at Estrada</h2>
-        <p class="lead" id="careers-lead">We hire operators, finishers, pipe crews, and foremen who take pride in the work. Steady DFW-area projects, self-performed scopes, and a crew that has your back.</p>
+        <p class="lead" id="careers-lead">We hire pipelayers, operators, finishers, form setters, drivers, and foremen who take pride in the work. Steady DFW-area projects, self-performed scopes, and a crew that has your back.</p>
       </div>
       <div class="reveal d1" id="jobs-list">
         <div class="job">
-          <div><h4>Equipment Operator</h4><div class="jd">Sample listing — edit or remove openings in the Admin Dashboard.</div></div>
+          <div><h4>Pipelayer</h4><div class="jd">Water, sewer &amp; storm drain installation — grade, bed, lay, and joint pipe on underground utility crews.</div></div>
+          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Pipelayer" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+        </div>
+        <div class="job">
+          <div><h4>Equipment Operator</h4><div class="jd">Excavators, loaders, dozers, motor graders &amp; skid steers on paving, grading, and utility work.</div></div>
           <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Equipment%20Operator" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
         <div class="job">
-          <div><h4>Concrete Finisher</h4><div class="jd">Sample listing — edit or remove openings in the Admin Dashboard.</div></div>
+          <div><h4>Concrete Finisher</h4><div class="jd">Paving, curb &amp; gutter, sidewalks, and structural flatwork — finish quality is our name on the street.</div></div>
           <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Concrete%20Finisher" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
+        <div class="job">
+          <div><h4>Form Setter</h4><div class="jd">Set line and grade for paving, curbs, and structures — read plans, pull string, hold tolerance.</div></div>
+          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Form%20Setter" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+        </div>
+        <div class="job">
+          <div><h4>CDL Driver</h4><div class="jd">Class A/B — haul equipment, aggregates, and materials between our yard, plants, and jobsites.</div></div>
+          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20CDL%20Driver" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+        </div>
+        <div class="job">
+          <div><h4>Concrete / Paving Foreman</h4><div class="jd">Run a self-performed paving or flatwork crew — production, layout, quality, and safety.</div></div>
+          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Concrete%20%2F%20Paving%20Foreman" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+        </div>
+        <div class="job">
+          <div><h4>Utility Crew Foreman</h4><div class="jd">Lead underground crews on water, sewer &amp; storm scopes — trench safety, testing, and schedule.</div></div>
+          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Utility%20Crew%20Foreman" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+        </div>
+        <div class="job">
+          <div><h4>General Laborer</h4><div class="jd">No experience required — show up, work hard, and learn a trade. We promote from within.</div></div>
+          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20General%20Laborer" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUBCONTRACTORS & VENDORS ============ -->
+<section class="partners" id="partners">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="label">Do Business With Us</span>
+      <h2 style="margin-top:14px">Subcontractors &amp; Vendors</h2>
+      <p>Estrada self-performs its core scopes — and we round out our projects with dependable trade partners and suppliers. If you want to be on our bid list, introduce yourself and we'll keep you in the rotation.</p>
+    </div>
+    <div class="pt-grid">
+      <div class="pt reveal">
+        <h3>Subcontractors</h3>
+        <p>We regularly buy out supporting scopes across the DFW metroplex. Send us your capabilities, coverage area, W-9, and COI, and we'll include you on future bid solicitations.</p>
+        <div class="tags"><span>Trucking &amp; Hauling</span><span>Striping</span><span>Traffic Control</span><span>SWPPP / Erosion</span><span>Landscaping &amp; Irrigation</span><span>Electrical &amp; Signals</span><span>Fencing</span><span>Surveying</span></div>
+        <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Subcontractor%20Introduction"><span class="ln">Introduce Your Company</span><span class="arr">→</span></a>
+      </div>
+      <div class="pt reveal d1">
+        <h3>Vendors &amp; Suppliers</h3>
+        <p>Material and equipment pricing wins bids. Get your line card and current pricing in front of our estimating team and quote our upcoming work.</p>
+        <div class="tags"><span>Ready-Mix</span><span>Aggregates</span><span>Pipe &amp; Precast</span><span>Rebar &amp; Steel</span><span>Lumber &amp; Forms</span><span>Equipment Rental</span><span>Fuel &amp; Services</span></div>
+        <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Vendor%20%2F%20Supplier%20Introduction"><span class="ln">Send Your Line Card</span><span class="arr">→</span></a>
       </div>
     </div>
   </div>
@@ -839,7 +835,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
         <p class="fabout">Self-performed heavy civil construction for the Dallas–Fort Worth metroplex — paving and underground utilities built to last.</p>
       </div>
       <div><h5>Capabilities</h5><ul><li><a href="#capabilities">Paving</a></li><li><a href="#capabilities">Underground Utilities</a></li><li><a href="#capabilities">Site Prep &amp; Grading</a></li><li><a href="#capabilities">Concrete Structures</a></li></ul></div>
-      <div><h5>Company</h5><ul><li><a href="#why">Who We Are</a></li><li><a href="#sectors">Markets</a></li><li><a href="#area">Service Area</a></li><li><a href="#safety">Safety &amp; Prequal</a></li><li><a href="#careers">Careers</a></li><li><a href="#contact">Request a Bid</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#why">Who We Are</a></li><li><a href="#sectors">Markets</a></li><li><a href="#area">Service Area</a></li><li><a href="#safety">Safety &amp; Prequal</a></li><li><a href="#careers">Careers</a></li><li><a href="#partners">Subs &amp; Vendors</a></li><li><a href="#contact">Request a Bid</a></li></ul></div>
       <div><h5>Connect</h5><ul><li><a href="tel:+19726855477">(972) 685-5477</a></li><li><a href="mailto:bids@estradaconcrete.com">bids@estradaconcrete.com</a></li><li id="f-street">650 Skyline Drive</li><li id="f-city">Hutchins, TX 75141</li></ul></div>
     </div>
     <div class="f-bot">
@@ -849,29 +845,11 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
   </div>
 </footer>
 
-<!-- Background music -->
-<audio id="bgm" src="assets/audio/theme.mp3" loop preload="auto"></audio>
-<button id="music-toggle" type="button" aria-label="Play music" aria-pressed="false" title="Play music">
-  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path class="ic-play" d="M8 5v14l11-7z"/><g class="ic-pause" style="display:none"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></g></svg>
-</button>
+
 
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
-// ---- background music (autoplay w/ fallback + toggle) ----
-(function(){
-  const audio=document.getElementById('bgm'), btn=document.getElementById('music-toggle');
-  if(!audio||!btn) return;
-  const icPlay=btn.querySelector('.ic-play'), icPause=btn.querySelector('.ic-pause');
-  audio.volume=0.35;
-  function sync(){const p=!audio.paused&&!audio.ended;icPlay.style.display=p?'none':'';icPause.style.display=p?'':'none';btn.setAttribute('aria-pressed',p);const lbl=p?'Pause music':'Play music';btn.setAttribute('aria-label',lbl);btn.title=lbl;}
-  audio.addEventListener('play',sync);audio.addEventListener('pause',sync);
-  btn.addEventListener('click',()=>{audio.paused?audio.play().catch(()=>{}):audio.pause();});
-  // attempt autoplay; browsers usually block audible autoplay, so also start on first user gesture
-  audio.play().catch(()=>{});
-  const start=()=>{ if(audio.paused) audio.play().catch(()=>{}); };
-  ['pointerdown','keydown','touchstart','scroll'].forEach(ev=>addEventListener(ev,start,{once:true,passive:true}));
-  sync();
-})();
+
 // header solid on scroll
 const hdr=document.getElementById('hdr');
 const onScroll=()=>hdr.classList.toggle('solid',scrollY>window.innerHeight*0.7);
@@ -950,19 +928,6 @@ fetch('content/site-data.json').then(r=>r.ok?r.json():null).then(d=>{
     // ---- stats ----
     if(Array.isArray(d.stats)&&d.stats.length){const g=document.getElementById('statsgrid');
       if(g)g.innerHTML=d.stats.map((s,i)=>`<div class="s reveal in"><div class="n">${s.highlight?'<em>'+esc(s.value)+'</em>':esc(s.value)}</div><div class="l">${esc(s.label)}</div></div>`).join('');}
-    // ---- projects ----
-    if(Array.isArray(d.projects)&&d.projects.length){const g=document.getElementById('pj-grid');
-      if(g)g.innerHTML=d.projects.map(p=>`<div class="pj reveal in">
-        <div class="pj-top"><div class="pj-sector">${esc(p.sector)}</div><h3>${esc(p.name)}</h3><div class="pj-loc">${esc(p.location)}</div></div>
-        <div class="pj-body"><div class="pj-desc">${esc(p.description)}</div>
-        <div class="pj-scope">${(p.scopes||[]).map(s=>'<span>'+esc(s)+'</span>').join('')}</div>
-        ${p.client?'<div class="pj-client">Client: <b>'+esc(p.client)+'</b></div>':''}</div></div>`).join('');}
-    // ---- references ----
-    if(Array.isArray(d.references)&&d.references.length){const w=document.getElementById('refs'),l=document.getElementById('refs-list');
-      if(w&&l){w.style.display='block';l.innerHTML=d.references.map(r=>`<div style="border:1px solid var(--line);background:var(--paper);padding:16px 18px">
-        <div style="font-family:'Archivo';font-weight:700">${esc(r.name)}</div>
-        <div style="color:var(--steel);font-size:.86rem;margin-top:4px">${esc(r.company||'')}${r.role?' · '+esc(r.role):''}</div>
-        ${r.contact?'<div style="color:var(--steel-2);font-size:.82rem;margin-top:6px">'+esc(r.contact)+'</div>':''}</div>`).join('');}}
     // ---- safety ----
     if(d.safety){if(d.safety.title)document.getElementById('safety-title').textContent=d.safety.title;
       if(d.safety.lead)document.getElementById('safety-lead').textContent=d.safety.lead;

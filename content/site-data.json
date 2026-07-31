@@ -41,10 +41,16 @@
     ]
   },
   "careers": {
-    "lead": "We hire operators, finishers, pipe crews, and foremen who take pride in the work. Steady DFW-area projects, self-performed scopes, and a crew that has your back.",
+    "lead": "We hire pipelayers, operators, finishers, form setters, drivers, and foremen who take pride in the work. Steady DFW-area projects, self-performed scopes, and a crew that has your back.",
     "jobs": [
-      { "title": "Equipment Operator", "description": "Sample listing — edit or remove openings in the Admin Dashboard." },
-      { "title": "Concrete Finisher", "description": "Sample listing — edit or remove openings in the Admin Dashboard." }
+      { "title": "Pipelayer", "description": "Water, sewer & storm drain installation — grade, bed, lay, and joint pipe on underground utility crews." },
+      { "title": "Equipment Operator", "description": "Excavators, loaders, dozers, motor graders & skid steers on paving, grading, and utility work." },
+      { "title": "Concrete Finisher", "description": "Paving, curb & gutter, sidewalks, and structural flatwork — finish quality is our name on the street." },
+      { "title": "Form Setter", "description": "Set line and grade for paving, curbs, and structures — read plans, pull string, hold tolerance." },
+      { "title": "CDL Driver", "description": "Class A/B — haul equipment, aggregates, and materials between our yard, plants, and jobsites." },
+      { "title": "Concrete / Paving Foreman", "description": "Run a self-performed paving or flatwork crew — production, layout, quality, and safety." },
+      { "title": "Utility Crew Foreman", "description": "Lead underground crews on water, sewer & storm scopes — trench safety, testing, and schedule." },
+      { "title": "General Laborer", "description": "No experience required — show up, work hard, and learn a trade. We promote from within." }
     ]
   }
 }
