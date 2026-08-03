@@ -1,5 +1,5 @@
 {
-  "_comment": "Edit this file with the Admin Dashboard (admin/index.html). After saving, replace this file in the content/ folder and re-upload the site folder to Cloudflare Pages.",
+  "_comment": "Edit this file with the Admin Dashboard (admin/index.html). After saving, replace this file in the content/ folder and re-upload the site folder to Cloudflare Pages. NOTE: the Projects and Team sections are static HTML in index.html and are NOT driven by this file — edit them there.",
   "company": {
     "name": "Estrada Concrete Company LLC",
     "phone": "(972) 685-5477",
@@ -23,34 +23,85 @@
     "_tip": "After the first live submission, FormSubmit emails you an activation link plus a random alias. Paste the alias endpoint here (https://formsubmit.co/ajax/YOUR-ALIAS) so your email address is no longer visible in the page source."
   },
   "stats": [
-    { "value": "100%", "highlight": true, "label": "Self-performed core scopes — no chasing subcontractors" },
-    { "value": "DFW", "highlight": false, "label": "Metroplex-wide coverage, North-Texas based and operated" },
-    { "value": "0", "highlight": true, "label": "Compromises on safety, compaction, or finish quality" },
-    { "value": "24/7", "highlight": false, "label": "Bid and project response for owners and general contractors" }
+    {
+      "value": "$100M+",
+      "highlight": true,
+      "label": "Municipal reconstruction & utility work delivered for Dallas, DWU, Mesquite, Terrell, Garland and Hutchins"
+    },
+    {
+      "value": "95",
+      "highlight": false,
+      "label": "Units of owned equipment — a $4.6M fleet sized to run multiple contracts at once"
+    },
+    {
+      "value": "100%",
+      "highlight": true,
+      "label": "Self-performed core scopes — excavation, deep utilities, structures and paving"
+    },
+    {
+      "value": "Own Plant",
+      "highlight": false,
+      "label": "Ready-mix supplied by our affiliate Estrada Ready Mix in Hutchins"
+    }
   ],
-  "projects": [],
   "references": [],
   "safety": {
     "title": "Built To Qualify.",
     "lead": "Everything a general contractor or owner needs to prequalify Estrada — insurance, safety record, and capacity — in one place. Request our full prequalification package and we'll return it the same day.",
     "credentials": [
-      { "value": "Licensed.", "label": "Licensed & insured in the State of Texas — COI issued on request" },
-      { "value": "EMR —", "label": "Experience Modifier Rate — add your current EMR in the admin panel" },
-      { "value": "—", "label": "Bonding capacity — add single / aggregate limits in the admin panel" },
-      { "value": "GL + Auto", "label": "General liability, auto & workers' comp coverage — limits on request" }
+      {
+        "value": "Licensed.",
+        "label": "Licensed & insured in the State of Texas — COI issued on request"
+      },
+      {
+        "value": "$22.3M",
+        "label": "Largest single contract to date — DWU water, wastewater & storm across 26 locations"
+      },
+      {
+        "value": "14",
+        "label": "Municipal contracts delivered or under way — owner references furnished on request"
+      },
+      {
+        "value": "GL + Auto",
+        "label": "General liability, auto & workers' comp — limits, EMR and bonding capacity on request"
+      }
     ]
   },
   "careers": {
     "lead": "We hire pipelayers, operators, finishers, form setters, drivers, and foremen who take pride in the work. Steady DFW-area projects, self-performed scopes, and a crew that has your back.",
     "jobs": [
-      { "title": "Pipelayer", "description": "Water, sewer & storm drain installation — grade, bed, lay, and joint pipe on underground utility crews." },
-      { "title": "Equipment Operator", "description": "Excavators, loaders, dozers, motor graders & skid steers on paving, grading, and utility work." },
-      { "title": "Concrete Finisher", "description": "Paving, curb & gutter, sidewalks, and structural flatwork — finish quality is our name on the street." },
-      { "title": "Form Setter", "description": "Set line and grade for paving, curbs, and structures — read plans, pull string, hold tolerance." },
-      { "title": "CDL Driver", "description": "Class A/B — haul equipment, aggregates, and materials between our yard, plants, and jobsites." },
-      { "title": "Concrete / Paving Foreman", "description": "Run a self-performed paving or flatwork crew — production, layout, quality, and safety." },
-      { "title": "Utility Crew Foreman", "description": "Lead underground crews on water, sewer & storm scopes — trench safety, testing, and schedule." },
-      { "title": "General Laborer", "description": "No experience required — show up, work hard, and learn a trade. We promote from within." }
+      {
+        "title": "Pipelayer",
+        "description": "Water, sewer & storm drain installation — grade, bed, lay, and joint pipe on underground utility crews."
+      },
+      {
+        "title": "Equipment Operator",
+        "description": "Excavators, loaders, dozers, motor graders & skid steers on paving, grading, and utility work."
+      },
+      {
+        "title": "Concrete Finisher",
+        "description": "Paving, curb & gutter, sidewalks, and structural flatwork — finish quality is our name on the street."
+      },
+      {
+        "title": "Form Setter",
+        "description": "Set line and grade for paving, curbs, and structures — read plans, pull string, hold tolerance."
+      },
+      {
+        "title": "CDL Driver",
+        "description": "Class A/B — haul equipment, aggregates, and materials between our yard, plants, and jobsites."
+      },
+      {
+        "title": "Concrete / Paving Foreman",
+        "description": "Run a self-performed paving or flatwork crew — production, layout, quality, and safety."
+      },
+      {
+        "title": "Utility Crew Foreman",
+        "description": "Lead underground crews on water, sewer & storm scopes — trench safety, testing, and schedule."
+      },
+      {
+        "title": "General Laborer",
+        "description": "No experience required — show up, work hard, and learn a trade. We promote from within."
+      }
     ]
   }
 }
