@@ -12,10 +12,11 @@
   },
   "seo": {
     "siteUrl": "https://www.estradaconcrete.com/",
-    "title": "Estrada Concrete Company LLC | Heavy Civil & Concrete Contractor | Hutchins, TX",
-    "description": "Estrada Concrete Company LLC delivers self-performed heavy civil construction across the Dallas–Fort Worth metroplex — paving, underground utilities, site preparation, and concrete structures.",
-    "ogTitle": "Estrada Concrete — Self-Performed Heavy Civil, DFW",
-    "ogDescription": "Paving, underground utilities, site prep, and concrete structures. Self-performed across the DFW metroplex."
+    "title": "Concrete Paving & Underground Utilities, DFW | Estrada Concrete",
+    "description": "Self-performing heavy civil contractor in Hutchins, TX — concrete paving, street reconstruction, and water, wastewater and storm utilities across Dallas–Fort Worth.",
+    "ogTitle": "Concrete Paving & Underground Utilities, DFW | Estrada Concrete",
+    "ogDescription": "Self-performing heavy civil contractor in Hutchins, TX — concrete paving, street reconstruction, and water, wastewater and storm utilities across Dallas–Fort Worth.",
+    "_tip": "These override the <title> and meta description baked into index.html. Keep them in sync with the head tags."
   },
   "form": {
     "endpoint": "https://formsubmit.co/ajax/m.luetge@estradaconcrete.com",
