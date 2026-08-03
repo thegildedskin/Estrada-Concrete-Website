@@ -290,18 +290,18 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 .pj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .pj{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;transition:.3s}
 .pj:hover{box-shadow:0 18px 44px rgba(19,20,26,.10);transform:translateY(-3px)}
-.pj .pj-top{background:var(--asphalt);color:#fff;padding:22px 24px;position:relative;overflow:hidden}
+.pj .pj-top{background:var(--asphalt);color:#fff;padding:22px 24px;position:relative;overflow:hidden;min-height:134px;display:flex;flex-direction:column}
 .pj .pj-top::after{content:"";position:absolute;right:-24px;bottom:-24px;width:88px;height:88px;background:var(--red);opacity:.16;transform:rotate(45deg)}
 .pj .pj-sector{font-family:'Archivo';text-transform:uppercase;letter-spacing:.2em;font-size:.66rem;color:#ff5a64;font-weight:700}
 .pj h3{font-size:1.06rem;margin-top:8px;color:#fff;position:relative;z-index:2}
-.pj .pj-loc{color:#9aa0a8;font-size:.85rem;margin-top:5px;position:relative;z-index:2}
-.pj .pj-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:14px;flex:1}
-.pj .pj-val{font-family:'Archivo';font-weight:900;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em;line-height:1}
-.pj .pj-val span{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel-2);margin-top:7px}
-.pj .pj-scope{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.pj .pj-loc{color:#9aa0a8;font-size:.85rem;margin-top:auto;padding-top:8px;position:relative;z-index:2}
+.pj .pj-body{padding:20px 24px 24px;display:flex;flex-direction:column;flex:1}
+.pj .pj-scope{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
 .pj .pj-scope span{font-family:'Archivo';font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--concrete);color:var(--ink);padding:6px 10px}
-.pj-note{margin-top:40px;border-top:1px solid var(--line);padding-top:26px;color:var(--steel);font-size:.95rem;line-height:1.7;max-width:760px}
-.pj-note b{color:var(--ink);font-weight:700}
+.pj-cta{margin-top:44px;border-top:1px solid var(--line);padding-top:30px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.pj-cta p{color:var(--steel);font-size:.95rem;line-height:1.7;max-width:560px;margin:0}
+.pj-cta .btn{margin-top:0;flex:0 0 auto}
+@media(max-width:640px){.pj-cta{flex-direction:column;align-items:flex-start;gap:18px}}
 @media(max-width:960px){.pj-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.pj-grid{grid-template-columns:1fr}}
 
@@ -666,60 +666,37 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
     <div class="head reveal">
       <span class="label">Proven Work</span>
       <h2 style="margin-top:14px">Representative Projects</h2>
-      <p>Municipal reconstruction and utility contracts delivered across the metroplex — self-performed from demolition and deep utilities through final paving.</p>
+      <p>A selection of completed municipal reconstruction and utility contracts across the metroplex — self-performed from demolition and deep utilities through final paving.</p>
     </div>
     <div class="pj-grid" id="pj-grid">
       <div class="pj reveal">
-        <div class="pj-top"><div class="pj-sector">Dallas Water Utilities</div><h3>DWU 20-173/174 &amp; 20-505/506 — Water, Wastewater &amp; Storm</h3><div class="pj-loc">26 locations · In progress</div></div>
-        <div class="pj-body"><div class="pj-val">$22,324,709<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Water</span><span>Wastewater</span><span>Storm Drainage</span></div></div>
-      </div>
-      <div class="pj reveal d1">
         <div class="pj-top"><div class="pj-sector">City of Mesquite</div><h3>Rolling Hills — Full Reconstruction</h3><div class="pj-loc">Completed December 2024</div></div>
-        <div class="pj-body"><div class="pj-val">$11,310,611<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
+        <div class="pj-body"><div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
       </div>
-      <div class="pj reveal d2">
+      <div class="pj reveal d1">
         <div class="pj-top"><div class="pj-sector">City of Dallas</div><h3>Pemberton Hill</h3><div class="pj-loc">Completed</div></div>
-        <div class="pj-body"><div class="pj-val">$10,681,280<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
-      </div>
-      <div class="pj reveal">
-        <div class="pj-top"><div class="pj-sector">City of Dallas</div><h3>17-5001 Rosemont — Full Reconstruction</h3><div class="pj-loc">In progress</div></div>
-        <div class="pj-body"><div class="pj-val">$10,153,024<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
-      </div>
-      <div class="pj reveal d1">
-        <div class="pj-top"><div class="pj-sector">City of Mesquite</div><h3>Executive / Innovative Way — Full Reconstruction</h3><div class="pj-loc">Completed March 2025</div></div>
-        <div class="pj-body"><div class="pj-val">$9,311,406<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
+        <div class="pj-body"><div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
       </div>
       <div class="pj reveal d2">
-        <div class="pj-top"><div class="pj-sector">City of Dallas</div><h3>Alley Package 17-1403 — Full Reconstruction</h3><div class="pj-loc">Completed May 2025</div></div>
-        <div class="pj-body"><div class="pj-val">$9,300,771<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Alley Reconstruction</span><span>Concrete Paving</span></div></div>
+        <div class="pj-top"><div class="pj-sector">City of Mesquite</div><h3>Executive / Innovative Way — Full Reconstruction</h3><div class="pj-loc">Completed March 2025</div></div>
+        <div class="pj-body"><div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
       </div>
       <div class="pj reveal">
-        <div class="pj-top"><div class="pj-sector">City of Dallas</div><h3>Alley Package 17-1102 — Full Reconstruction</h3><div class="pj-loc">Completed June 2025</div></div>
-        <div class="pj-body"><div class="pj-val">$7,799,430<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Alley Reconstruction</span><span>Concrete Paving</span></div></div>
+        <div class="pj-top"><div class="pj-sector">City of Dallas</div><h3>Alley Package 17-1403 — Full Reconstruction</h3><div class="pj-loc">Completed May 2025</div></div>
+        <div class="pj-body"><div class="pj-scope"><span>Alley Reconstruction</span><span>Concrete Paving</span></div></div>
       </div>
       <div class="pj reveal d1">
-        <div class="pj-top"><div class="pj-sector">City of Dallas</div><h3>Target 17-7007 — Full Reconstruction</h3><div class="pj-loc">In progress</div></div>
-        <div class="pj-body"><div class="pj-val">$7,353,742<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
+        <div class="pj-top"><div class="pj-sector">City of Dallas</div><h3>Alley Package 17-1102 — Full Reconstruction</h3><div class="pj-loc">Completed June 2025</div></div>
+        <div class="pj-body"><div class="pj-scope"><span>Alley Reconstruction</span><span>Concrete Paving</span></div></div>
       </div>
       <div class="pj reveal d2">
         <div class="pj-top"><div class="pj-sector">City of Terrell</div><h3>Metro Drive / Apache — Full Reconstruction</h3><div class="pj-loc">Completed August 2024</div></div>
-        <div class="pj-body"><div class="pj-val">$5,381,780<span>Contract Value</span></div>
-        <div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
+        <div class="pj-body"><div class="pj-scope"><span>Full Reconstruction</span><span>Concrete Paving</span></div></div>
       </div>
     </div>
-    <div class="pj-note reveal">
-      <b>Fourteen representative contracts · $102.2 million combined.</b> Additional completed work for the
-      City of Dallas, City of Hutchins and others — including a 21-inch sanitary sewer main and further alley
-      and street packages — is listed in our Statement of Qualifications. Owner references and payment
-      contacts are furnished on request with any prequalification submittal.
+    <div class="pj-cta reveal">
+      <p>Full project history — including active contracts, contract values, and owner reference contacts — is provided in our Statement of Qualifications.</p>
+      <a class="btn btn-red" href="mailto:bids@estradaconcrete.com?subject=Qualifications%20package%20request" data-bind="prequal-mail">Request Qualifications Package →</a>
     </div>
   </div>
 </section>
