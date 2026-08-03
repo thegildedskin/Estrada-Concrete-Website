@@ -1,4 +1,4 @@
-# Estrada Concrete Company LLC — https://www.estradaconcrete.com/
+# Estrada Concrete Company LLC — https://estrada-concrete.com/
 
 # --- Search engines ---
 User-agent: *
@@ -68,4 +68,4 @@ User-agent: cohere-ai
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://www.estradaconcrete.com/sitemap.xml
+Sitemap: https://estrada-concrete.com/sitemap.xml

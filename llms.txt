@@ -6,11 +6,13 @@
 
 ## Company facts
 
-- **Legal name:** Estrada Concrete Company LLC
+- **Legal name:** Estrada Concrete Company, LLC
+- **Founded:** 2007 (Texas LLC, formed 21 February 2007)
+- **Employees:** approximately 125
 - **Address:** 650 Skyline Drive, Hutchins, TX 75141, United States
 - **Phone:** (972) 685-5477
 - **Email:** bids@estradaconcrete.com
-- **Website:** https://www.estradaconcrete.com/
+- **Website:** https://estrada-concrete.com/
 - **Hours:** Monday–Friday, 7:00 AM – 5:00 PM Central
 - **Service area:** Dallas–Fort Worth metroplex — Dallas, Fort Worth, Arlington, Irving,
   Plano, Garland, Frisco, McKinney, Denton, Mesquite, Grand Prairie, Carrollton, Terrell,
@@ -58,9 +60,9 @@ Municipal, commercial, residential and industrial.
 
 ## Key pages
 
-- [Home](https://www.estradaconcrete.com/): capabilities, projects, team, service area
-- [Frequently asked questions](https://www.estradaconcrete.com/#faq)
-- [Representative projects](https://www.estradaconcrete.com/#projects)
-- [Safety and prequalification](https://www.estradaconcrete.com/#safety)
-- [Careers](https://www.estradaconcrete.com/#careers)
-- [Subcontractors and vendors](https://www.estradaconcrete.com/#partners)
+- [Home](https://estrada-concrete.com/): capabilities, projects, team, service area
+- [Frequently asked questions](https://estrada-concrete.com/#faq)
+- [Representative projects](https://estrada-concrete.com/#projects)
+- [Safety and prequalification](https://estrada-concrete.com/#safety)
+- [Careers](https://estrada-concrete.com/#careers)
+- [Subcontractors and vendors](https://estrada-concrete.com/#partners)
