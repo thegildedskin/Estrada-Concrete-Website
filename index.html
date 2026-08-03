@@ -342,9 +342,9 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 .team .head p{color:var(--steel);margin-top:14px;line-height:1.7}
 .tm-sub{font-family:'Archivo';font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.7rem;color:var(--steel-2);margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .tm-sub:not(:first-of-type){margin-top:46px}
-.tm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line)}
-.tm{background:var(--paper);padding:24px 22px;display:flex;align-items:center;gap:16px;transition:.25s}
-.tm:hover{background:#fff;box-shadow:0 12px 30px rgba(19,20,26,.08)}
+.tm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:14px}
+.tm{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--red);padding:22px 20px;display:flex;align-items:center;gap:15px;transition:.25s}
+.tm:hover{background:#fff;box-shadow:0 12px 30px rgba(19,20,26,.08);transform:translateY(-2px)}
 .tm .av{flex:0 0 46px;width:46px;height:46px;background:var(--asphalt);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:900;font-size:.86rem;letter-spacing:.02em;position:relative;overflow:hidden}
 .tm .av::after{content:"";position:absolute;right:-12px;bottom:-12px;width:26px;height:26px;background:var(--red);opacity:.55;transform:rotate(45deg)}
 .tm .nm{font-family:'Archivo';font-weight:700;font-size:.96rem;color:var(--ink);line-height:1.25}
@@ -770,21 +770,27 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
       <p>Reconstruction and utility work is won and lost in the field. These are the people who run it — the same names that appear on our prequalification submittals.</p>
     </div>
     <div class="reveal d1">
-      <p class="tm-sub">Leadership &amp; Project Management</p>
+      <p class="tm-sub">Leadership</p>
       <div class="tm-grid">
+        <div class="tm"><div class="av">PF</div><div><div class="nm">Phil Flink</div><div class="rl">Chief Executive Officer</div></div></div>
         <div class="tm"><div class="av">CL</div><div><div class="nm">Chris Leach</div><div class="rl">Chief Operating Officer</div></div></div>
-        <div class="tm"><div class="av">JG</div><div><div class="nm">Javier Guzman</div><div class="rl">Utility Project Manager</div></div></div>
-        <div class="tm"><div class="av">DP</div><div><div class="nm">Darrick Pratt</div><div class="rl">Utility Project Manager</div></div></div>
-        <div class="tm"><div class="av">ML</div><div><div class="nm">Matt Luetge</div><div class="rl">Estimating &amp; Preconstruction</div></div></div>
+        <div class="tm"><div class="av">GB</div><div><div class="nm">Glen Butterfield</div><div class="rl">Chief Financial Officer</div></div></div>
+        <div class="tm"><div class="av">LS</div><div><div class="nm">Les Selser</div><div class="rl">Director of Field Operations</div></div></div>
+      </div>
+      <p class="tm-sub">Project Management</p>
+      <div class="tm-grid">
+        <div class="tm"><div class="av">MC</div><div><div class="nm">Matt Clark</div><div class="rl">Project Manager</div></div></div>
+        <div class="tm"><div class="av">MF</div><div><div class="nm">Marco Flores</div><div class="rl">Project Manager</div></div></div>
+        <div class="tm"><div class="av">JG</div><div><div class="nm">Javier Guzman</div><div class="rl">Project Manager</div></div></div>
+        <div class="tm"><div class="av">HP</div><div><div class="nm">Hayden Parker</div><div class="rl">Project Manager</div></div></div>
+        <div class="tm"><div class="av">MN</div><div><div class="nm">Mike Nguyen</div><div class="rl">Project Manager</div></div></div>
       </div>
       <p class="tm-sub">Field Supervision</p>
       <div class="tm-grid">
-        <div class="tm"><div class="av">MS</div><div><div class="nm">Misael Salas</div><div class="rl">Utility Superintendent</div></div></div>
-        <div class="tm"><div class="av">LV</div><div><div class="nm">Lorenzo Villagraba</div><div class="rl">Utility Superintendent</div></div></div>
-        <div class="tm"><div class="av">RG</div><div><div class="nm">Roberto Gonzales</div><div class="rl">Utility Foreman</div></div></div>
-        <div class="tm"><div class="av">RM</div><div><div class="nm">Raul Martinez</div><div class="rl">Utility Foreman</div></div></div>
-        <div class="tm"><div class="av">SO</div><div><div class="nm">Samuel Orelana</div><div class="rl">Utility Foreman</div></div></div>
-        <div class="tm"><div class="av">OG</div><div><div class="nm">Oscar Gomez</div><div class="rl">Utility Foreman</div></div></div>
+        <div class="tm"><div class="av">MS</div><div><div class="nm">Misael Salas</div><div class="rl">Superintendent</div></div></div>
+        <div class="tm"><div class="av">LV</div><div><div class="nm">Lorenzo Villagraba</div><div class="rl">Superintendent</div></div></div>
+        <div class="tm"><div class="av">BB</div><div><div class="nm">Brandon Bishop</div><div class="rl">Superintendent</div></div></div>
+        <div class="tm"><div class="av">MW</div><div><div class="nm">Mike Woelfle</div><div class="rl">Superintendent</div></div></div>
       </div>
     </div>
   </div>
