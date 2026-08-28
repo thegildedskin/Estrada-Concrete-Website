@@ -1,0 +1,11 @@
+# Files wrangler must NOT upload as public site assets (Workers static assets).
+# Without this, the whole .git history was being served at estrada-concrete.com/.git/
+.git
+.gitignore
+.gitattributes
+.wrangler
+wrangler.jsonc
+wrangler.toml
+node_modules
+.assetsignore
+*.md
