@@ -1,0 +1,2 @@
+# Canonical host: apex, no www (matches <link rel="canonical"> and the sitemap)
+https://www.estrada-concrete.com/* https://estrada-concrete.com/:splat 301

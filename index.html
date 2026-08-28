@@ -61,8 +61,21 @@
     "value": 125
    },
    "sameAs": [
-    "https://www.linkedin.com/company/143042642/"
+    "https://www.linkedin.com/company/143042642/",
+    "https://www.thebluebook.com/iProView/1373463/",
+    "https://network.procore.com/p/estrada-concrete-company-llc-hutchins"
    ],
+   "subOrganization": {
+    "@type": "Organization",
+    "name": "Estrada Ready Mix Concrete",
+    "description": "Affiliate ready-mix concrete plant in Hutchins, Texas supplying Estrada Concrete Company projects.",
+    "address": {
+     "@type": "PostalAddress",
+     "addressLocality": "Hutchins",
+     "addressRegion": "TX",
+     "addressCountry": "US"
+    }
+   },
    "description": "Self-performing heavy civil contractor in Hutchins, Texas. Concrete paving, street and alley reconstruction, and water, wastewater and storm-drainage utilities across the Dallas–Fort Worth metroplex.",
    "address": {
     "@type": "PostalAddress",
@@ -458,6 +471,7 @@
 }
 </script>
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preload" as="image" href="assets/photos/hero.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -479,6 +493,7 @@
   --max:1280px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth}
 body{font-family:'Barlow',sans-serif;background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,h4,h5,.disp{font-family:'Archivo',sans-serif;line-height:1.04;letter-spacing:-.015em;font-weight:800}
@@ -763,7 +778,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 .team .head p{color:var(--steel);margin-top:14px;line-height:1.7}
 .tm-sub{font-family:'Archivo';font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.7rem;color:var(--steel-2);margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .tm-sub:not(:first-of-type){margin-top:46px}
-.tm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:14px}
+.tm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
 .tm{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--red);padding:22px 20px;display:flex;align-items:center;gap:15px;transition:.25s}
 .tm:hover{background:#fff;box-shadow:0 12px 30px rgba(19,20,26,.08);transform:translateY(-2px)}
 .tm .av{flex:0 0 46px;width:46px;height:46px;background:var(--asphalt);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Archivo';font-weight:900;font-size:.86rem;letter-spacing:.02em;position:relative;overflow:hidden}
@@ -809,8 +824,8 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
   <div class="wrap">
     <div class="bar">
       <a href="#top" class="logo">
-        <img class="l-light" src="assets/img/estrada-logo-light.png" width="342" height="100" alt="Estrada Concrete Company LLC" alt="Estrada Concrete Company LLC">
-        <img class="l-dark" src="assets/img/estrada-logo-dark.png" width="342" height="100" alt="Estrada Concrete Company LLC" alt="Estrada Concrete Company LLC">
+        <img class="l-light" src="assets/img/estrada-logo-light.png" width="342" height="100" alt="Estrada Concrete Company LLC">
+        <img class="l-dark" src="assets/img/estrada-logo-dark.png" width="342" height="100" alt="Estrada Concrete Company LLC">
       </a>
       <nav class="nav" id="nav">
         <a class="n" href="#capabilities">Capabilities</a>
@@ -831,7 +846,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="scene">
-    <img class="photo" src="assets/photos/hero.jpg" alt="" onerror="this.remove()">
+    <img class="photo" src="assets/photos/hero.jpg" alt="" fetchpriority="high" decoding="async" onerror="this.remove()">
     <video class="photo hero-video" autoplay muted loop playsinline preload="none" poster="assets/photos/hero.jpg" data-src="assets/photos/hero.mp4"></video>
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
@@ -884,7 +899,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
   </div>
   <div class="wrap">
     <span class="label on-dark reveal">Concrete Paving · Street Reconstruction · Underground Utilities · DFW</span>
-    <h1 class="reveal d1">Grade. Pave.<br><span>Connect.</span></h1>
+    <h1 class="reveal d1">Grade. Pave.<br><span>Connect.</span><span class="sr-only"> — Concrete Paving &amp; Underground Utility Contractor, Dallas–Fort Worth</span></h1>
     <p class="reveal d2">Estrada Concrete builds the infrastructure the Dallas–Fort Worth metroplex relies on — paving and underground utilities self-performed by our own crews, delivered safely, on schedule, and built to last.</p>
     <div class="row reveal d3">
       <a href="#capabilities" class="btn btn-out">Explore Our Capabilities</a>
@@ -897,7 +912,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 <!-- ============ PANEL 1 — PAVING ============ -->
 <section class="panel dark-l" id="panel-paving">
   <div class="scene">
-    <img class="photo" src="assets/photos/paving.jpg" alt="" onerror="this.remove()">
+    <img class="photo" src="assets/photos/paving.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
     <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs><linearGradient id="pv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#23252c"/><stop offset="1" stop-color="#131419"/></linearGradient></defs>
       <rect width="1440" height="760" fill="url(#pv)"/>
@@ -933,7 +948,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 <!-- ============ PANEL 2 — UNDERGROUND ============ -->
 <section class="panel dark-r" id="panel-underground">
   <div class="scene">
-    <img class="photo" src="assets/photos/utilities.jpg" alt="" onerror="this.remove()">
+    <img class="photo" src="assets/photos/utilities.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
     <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
         <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2722"/><stop offset="1" stop-color="#16140f"/></linearGradient>
@@ -974,7 +989,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 <!-- ============ PANEL 3 — SITE WORK ============ -->
 <section class="panel dark-l" id="panel-site">
   <div class="scene">
-    <img class="photo" src="assets/photos/sitework.jpg" alt="" onerror="this.remove()">
+    <img class="photo" src="assets/photos/sitework.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()">
     <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs><linearGradient id="st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#252830"/><stop offset="1" stop-color="#121318"/></linearGradient></defs>
       <rect width="1440" height="760" fill="url(#st)"/>
@@ -1058,7 +1073,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
         <ul><li>Roadways &amp; streets</li><li>Parking lots</li><li>Curb &amp; gutter</li><li>Overlays &amp; resurfacing</li><li>ADA ramps</li><li>Approaches &amp; drives</li></ul>
         <a href="#contact" class="tlink"><span class="ln">Request a paving bid</span><span class="arr">→</span></a>
       </div>
-      <div class="media"><img class="photo" src="assets/photos/cap-paving.jpg" alt="" onerror="this.remove()"><svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice"><rect width="600" height="450" fill="#1a1c22"/><polygon points="0,250 600,180 600,450 0,450" fill="#23252c"/><polygon points="0,250 600,180 600,205 0,275" fill="#34363d"/><g fill="#d8b94a"><polygon points="120,330 230,312 236,328 126,346"/><polygon points="300,300 410,284 416,300 306,316"/><polygon points="470,270 580,256 586,272 476,286"/></g></svg></div>
+      <div class="media"><img class="photo" src="assets/photos/cap-paving.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice"><rect width="600" height="450" fill="#1a1c22"/><polygon points="0,250 600,180 600,450 0,450" fill="#23252c"/><polygon points="0,250 600,180 600,205 0,275" fill="#34363d"/><g fill="#d8b94a"><polygon points="120,330 230,312 236,328 126,346"/><polygon points="300,300 410,284 416,300 306,316"/><polygon points="470,270 580,256 586,272 476,286"/></g></svg></div>
     </div>
 
     <div class="pane" id="t2">
@@ -1068,7 +1083,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
         <ul><li>Water distribution</li><li>Sanitary sewer</li><li>Storm drainage</li><li>Manholes &amp; inlets</li><li>Service tie-ins</li><li>Pressure &amp; vacuum testing</li></ul>
         <a href="#contact" class="tlink"><span class="ln">Request a utilities bid</span><span class="arr">→</span></a>
       </div>
-      <div class="media"><img class="photo" src="assets/photos/cap-utilities.jpg" alt="" onerror="this.remove()"><svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice"><rect width="600" height="450" fill="#241f18"/><rect y="90" width="600" height="360" fill="#16140f"/><rect y="78" width="600" height="14" fill="#33353c"/><polygon points="150,90 470,90 430,380 190,380" fill="#0d0b08"/><circle cx="300" cy="310" r="60" fill="#191a1f" stroke="#3a3c43" stroke-width="6"/><circle cx="300" cy="310" r="34" fill="#0a0b0e"/><circle cx="240" cy="200" r="34" fill="#6c0008" stroke="#a40e18" stroke-width="5"/><circle cx="350" cy="195" r="30" fill="#1f6b3a" stroke="#2f8f4f" stroke-width="5"/></svg></div>
+      <div class="media"><img class="photo" src="assets/photos/cap-utilities.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice"><rect width="600" height="450" fill="#241f18"/><rect y="90" width="600" height="360" fill="#16140f"/><rect y="78" width="600" height="14" fill="#33353c"/><polygon points="150,90 470,90 430,380 190,380" fill="#0d0b08"/><circle cx="300" cy="310" r="60" fill="#191a1f" stroke="#3a3c43" stroke-width="6"/><circle cx="300" cy="310" r="34" fill="#0a0b0e"/><circle cx="240" cy="200" r="34" fill="#6c0008" stroke="#a40e18" stroke-width="5"/><circle cx="350" cy="195" r="30" fill="#1f6b3a" stroke="#2f8f4f" stroke-width="5"/></svg></div>
     </div>
 
     <div class="pane" id="t3">
@@ -1078,7 +1093,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
         <ul><li>Clearing &amp; grubbing</li><li>Mass excavation</li><li>Cut &amp; fill</li><li>Subgrade prep</li><li>Building pads</li><li>Erosion control</li></ul>
         <a href="#contact" class="tlink"><span class="ln">Request a site-work bid</span><span class="arr">→</span></a>
       </div>
-      <div class="media"><img class="photo" src="assets/photos/cap-sitework.jpg" alt="" onerror="this.remove()"><svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice"><rect width="600" height="450" fill="#252830"/><polygon points="0,280 600,210 600,450 0,450" fill="#1c1d22"/><polygon points="0,340 600,280 600,450 0,450" fill="#161115"/><g fill="#0a0b0e" transform="translate(150,150)"><rect x="20" y="100" width="160" height="28" rx="5"/><rect x="36" y="60" width="90" height="46" rx="7"/><path d="M126 70 L220 36 L240 56 L160 96 Z"/><path d="M228 44 L268 116 L250 126 L210 58 Z"/><rect x="26" y="124" width="150" height="22" rx="11"/></g></svg></div>
+      <div class="media"><img class="photo" src="assets/photos/cap-sitework.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice"><rect width="600" height="450" fill="#252830"/><polygon points="0,280 600,210 600,450 0,450" fill="#1c1d22"/><polygon points="0,340 600,280 600,450 0,450" fill="#161115"/><g fill="#0a0b0e" transform="translate(150,150)"><rect x="20" y="100" width="160" height="28" rx="5"/><rect x="36" y="60" width="90" height="46" rx="7"/><path d="M126 70 L220 36 L240 56 L160 96 Z"/><path d="M228 44 L268 116 L250 126 L210 58 Z"/><rect x="26" y="124" width="150" height="22" rx="11"/></g></svg></div>
     </div>
 
     <div class="pane" id="t4">
@@ -1088,7 +1103,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
         <ul><li>Sidewalks &amp; trails</li><li>Flumes &amp; channels</li><li>Drainage inlets</li><li>Headwalls</li><li>Structural flatwork</li><li>Retaining elements</li></ul>
         <a href="#contact" class="tlink"><span class="ln">Request a concrete bid</span><span class="arr">→</span></a>
       </div>
-      <div class="media"><img class="photo" src="assets/photos/cap-concrete.jpg" alt="" onerror="this.remove()"><svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice"><rect width="600" height="450" fill="#1f2127"/><polygon points="0,300 600,300 600,450 0,450" fill="#2c2e35"/><polygon points="0,300 600,300 600,318 0,318" fill="#3c3e45"/><rect x="120" y="180" width="360" height="120" fill="#262830"/><rect x="120" y="180" width="360" height="14" fill="#34363d"/><line x1="240" y1="194" x2="240" y2="300" stroke="#15161a" stroke-width="6"/><line x1="360" y1="194" x2="360" y2="300" stroke="#15161a" stroke-width="6"/></svg></div>
+      <div class="media"><img class="photo" src="assets/photos/cap-concrete.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice"><rect width="600" height="450" fill="#1f2127"/><polygon points="0,300 600,300 600,450 0,450" fill="#2c2e35"/><polygon points="0,300 600,300 600,318 0,318" fill="#3c3e45"/><rect x="120" y="180" width="360" height="120" fill="#262830"/><rect x="120" y="180" width="360" height="14" fill="#34363d"/><line x1="240" y1="194" x2="240" y2="300" stroke="#15161a" stroke-width="6"/><line x1="360" y1="194" x2="360" y2="300" stroke="#15161a" stroke-width="6"/></svg></div>
     </div>
   </div>
 </section>
@@ -1143,10 +1158,10 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
       <p>From public infrastructure to private development, our crews mobilize across the metroplex for the work that holds North Texas together.</p>
     </div>
     <div class="sec-grid">
-      <div class="sec reveal"><img class="photo" src="assets/photos/sector-municipal.jpg" alt="" onerror="this.remove()"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#1a1c22"/><rect x="60" y="120" width="180" height="280" fill="#23252c"/><rect x="130" y="60" width="40" height="60" fill="#2b2d34"/><g fill="#15161a"><rect x="90" y="160" width="30" height="40"/><rect x="180" y="160" width="30" height="40"/><rect x="90" y="240" width="30" height="40"/><rect x="180" y="240" width="30" height="40"/></g></svg><div class="c"><h4>Municipal</h4><p>Public roads, utilities, and drainage infrastructure for cities and counties.</p></div></div>
-      <div class="sec reveal d1"><img class="photo" src="assets/photos/sector-commercial.jpg" alt="" onerror="this.remove()"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#1c1d22"/><rect x="40" y="80" width="100" height="320" fill="#23252c"/><rect x="160" y="150" width="100" height="250" fill="#26272f"/><g fill="#15161a"><rect x="60" y="110" width="24" height="30"/><rect x="100" y="110" width="24" height="30"/><rect x="180" y="180" width="24" height="30"/><rect x="220" y="180" width="24" height="30"/></g></svg><div class="c"><h4>Commercial</h4><p>Site work, parking, and access for retail, office, and mixed-use developments.</p></div></div>
-      <div class="sec reveal d2"><img class="photo" src="assets/photos/sector-residential.jpg" alt="" onerror="this.remove()"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#1e1f25"/><polygon points="40,200 150,120 260,200 260,400 40,400" fill="#23252c"/><polygon points="40,200 150,120 260,200 150,160" fill="#2b2d34"/><rect x="120" y="260" width="60" height="140" fill="#15161a"/></svg><div class="c"><h4>Residential</h4><p>Subdivision paving, driveways, and utility tie-ins for homebuilders.</p></div></div>
-      <div class="sec reveal d3"><img class="photo" src="assets/photos/sector-industrial.jpg" alt="" onerror="this.remove()"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#191a20"/><rect x="40" y="180" width="220" height="220" fill="#23252c"/><polygon points="40,180 150,120 260,180" fill="#2b2d34"/><g fill="#6c0008"><rect x="70" y="230" width="50" height="170"/></g><g fill="#15161a"><rect x="150" y="230" width="40" height="60"/><rect x="210" y="230" width="40" height="60"/></g></svg><div class="c"><h4>Industrial</h4><p>Heavy-load pavement, equipment yards, and logistics-site infrastructure.</p></div></div>
+      <div class="sec reveal"><img class="photo" src="assets/photos/sector-municipal.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#1a1c22"/><rect x="60" y="120" width="180" height="280" fill="#23252c"/><rect x="130" y="60" width="40" height="60" fill="#2b2d34"/><g fill="#15161a"><rect x="90" y="160" width="30" height="40"/><rect x="180" y="160" width="30" height="40"/><rect x="90" y="240" width="30" height="40"/><rect x="180" y="240" width="30" height="40"/></g></svg><div class="c"><h4>Municipal</h4><p>Public roads, utilities, and drainage infrastructure for cities and counties.</p></div></div>
+      <div class="sec reveal d1"><img class="photo" src="assets/photos/sector-commercial.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#1c1d22"/><rect x="40" y="80" width="100" height="320" fill="#23252c"/><rect x="160" y="150" width="100" height="250" fill="#26272f"/><g fill="#15161a"><rect x="60" y="110" width="24" height="30"/><rect x="100" y="110" width="24" height="30"/><rect x="180" y="180" width="24" height="30"/><rect x="220" y="180" width="24" height="30"/></g></svg><div class="c"><h4>Commercial</h4><p>Site work, parking, and access for retail, office, and mixed-use developments.</p></div></div>
+      <div class="sec reveal d2"><img class="photo" src="assets/photos/sector-residential.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#1e1f25"/><polygon points="40,200 150,120 260,200 260,400 40,400" fill="#23252c"/><polygon points="40,200 150,120 260,200 150,160" fill="#2b2d34"/><rect x="120" y="260" width="60" height="140" fill="#15161a"/></svg><div class="c"><h4>Residential</h4><p>Subdivision paving, driveways, and utility tie-ins for homebuilders.</p></div></div>
+      <div class="sec reveal d3"><img class="photo" src="assets/photos/sector-industrial.jpg" alt="" loading="lazy" decoding="async" onerror="this.remove()"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><rect width="300" height="400" fill="#191a20"/><rect x="40" y="180" width="220" height="220" fill="#23252c"/><polygon points="40,180 150,120 260,180" fill="#2b2d34"/><g fill="#6c0008"><rect x="70" y="230" width="50" height="170"/></g><g fill="#15161a"><rect x="150" y="230" width="40" height="60"/><rect x="210" y="230" width="40" height="60"/></g></svg><div class="c"><h4>Industrial</h4><p>Heavy-load pavement, equipment yards, and logistics-site infrastructure.</p></div></div>
     </div>
   </div>
 </section>
