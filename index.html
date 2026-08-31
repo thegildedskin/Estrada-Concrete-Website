@@ -522,6 +522,18 @@ a{color:inherit;text-decoration:none}
 .btn-out{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45)}
 .btn-out:hover{background:#fff;color:var(--ink);border-color:#fff}
 
+/* ---------- audience switch ---------- */
+.aud{background:var(--asphalt);border-top:1px solid rgba(255,255,255,.08)}
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.aud-t{display:flex;flex-direction:column;gap:4px;position:relative;padding:24px 28px 22px;color:#fff;border-left:1px solid rgba(255,255,255,.1);transition:background .25s}
+.aud-t:first-child{border-left:0}
+.aud-t:hover{background:rgba(255,255,255,.05)}
+.aud-t .k{font-family:'Archivo';font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;color:#ff5a64}
+.aud-t .t{font-family:'Archivo';font-weight:800;font-size:1.02rem}
+.aud-t .arr{position:absolute;right:22px;top:50%;transform:translateY(-50%);color:var(--red-bright);font-size:1.2rem;transition:transform .25s}
+.aud-t:hover .arr{transform:translateY(-50%) translateX(4px)}
+@media(max-width:820px){.aud-grid{grid-template-columns:1fr}.aud-t{border-left:0;border-top:1px solid rgba(255,255,255,.1);padding:16px 22px}}
+
 /* ---------- header ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:600;transition:background .4s,box-shadow .4s,padding .4s;padding:6px 0}
 header .bar{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
@@ -601,7 +613,7 @@ header.solid .menu-btn span{background:var(--ink)}
 .stats{background:var(--ink);color:#fff;padding:84px 0}
 .stats .head{max-width:640px;margin-bottom:50px}
 .stats .head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:900}
-.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stats .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .stats .s{padding:8px 26px;border-left:2px solid rgba(255,255,255,.16)}
 .stats .s .n{font-family:'Archivo';font-weight:900;font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:1;color:#fff;letter-spacing:-.02em}
 .stats .s .n em{color:var(--red-bright);font-style:normal}
@@ -909,6 +921,17 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
   <div class="scroll-hint"><span>Scroll</span><span class="ln"></span></div>
 </section>
 
+<!-- ============ AUDIENCE SWITCH ============ -->
+<section class="aud" aria-label="Quick start">
+  <div class="wrap">
+    <div class="aud-grid">
+      <a class="aud-t" href="#contact"><span class="k">Owners &amp; GCs</span><span class="t">I'm bidding a project</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="aud-t" href="#partners"><span class="k">Subs &amp; Vendors</span><span class="t">Put us on your bid list</span><span class="arr" aria-hidden="true">→</span></a>
+      <a class="aud-t" href="apply/"><span class="k">Careers · Empleos</span><span class="t">I'm looking for work</span><span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PANEL 1 — PAVING ============ -->
 <section class="panel dark-l" id="panel-paving">
   <div class="scene">
@@ -1044,6 +1067,8 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
     <div class="head reveal"><span class="label on-dark">Why Estrada</span><h2 style="margin-top:14px">Local Crews. Real Control. Proven Results.</h2></div>
     <div class="grid" id="statsgrid">
       <div class="s reveal"><div class="n"><em>$100M+</em></div><div class="l">Municipal reconstruction &amp; utility work delivered for Dallas, DWU, Mesquite, Terrell, Garland and Hutchins</div></div>
+      <div class="s reveal d1"><div class="n">2007</div><div class="l">Building North Texas infrastructure since 2007 — a family-run Texas company</div></div>
+      <div class="s reveal d2"><div class="n">125</div><div class="l">Employees — our own crews, foremen and superintendents, not a broker's</div></div>
       <div class="s reveal d1"><div class="n">95</div><div class="l">Units of owned equipment — a $4.6M fleet sized to run multiple contracts at once</div></div>
       <div class="s reveal d2"><div class="n"><em>100%</em></div><div class="l">Self-performed core scopes — excavation, deep utilities, structures and paving</div></div>
       <div class="s reveal d3"><div class="n">Own Plant</div><div class="l">Ready-mix supplied by our affiliate Estrada Ready Mix in Hutchins</div></div>
@@ -1273,40 +1298,40 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
       <div class="reveal">
         <span class="label">Join The Crew</span>
         <h2>Careers at Estrada</h2>
-        <p class="lead" id="careers-lead">We hire pipelayers, operators, finishers, form setters, drivers, and foremen who take pride in the work. Steady DFW-area projects, self-performed scopes, and a crew that has your back.</p>
+        <p class="lead" id="careers-lead">We hire pipelayers, operators, finishers, form setters, drivers, and foremen who take pride in the work. Steady DFW-area projects, self-performed scopes, and a crew that has your back. Apply online in two minutes — English o Español.</p>
       </div>
       <div class="reveal d1" id="jobs-list">
         <div class="job">
           <div><h4>Pipelayer</h4><div class="jd">Water, sewer &amp; storm drain installation — grade, bed, lay, and joint pipe on underground utility crews.</div></div>
-          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Pipelayer" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+          <a class="tlink" href="apply/?p=Pipelayer"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
         <div class="job">
           <div><h4>Equipment Operator</h4><div class="jd">Excavators, loaders, dozers, motor graders &amp; skid steers on paving, grading, and utility work.</div></div>
-          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Equipment%20Operator" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+          <a class="tlink" href="apply/?p=Equipment%20Operator"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
         <div class="job">
           <div><h4>Concrete Finisher</h4><div class="jd">Paving, curb &amp; gutter, sidewalks, and structural flatwork — finish quality is our name on the street.</div></div>
-          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Concrete%20Finisher" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+          <a class="tlink" href="apply/?p=Concrete%20Finisher"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
         <div class="job">
           <div><h4>Form Setter</h4><div class="jd">Set line and grade for paving, curbs, and structures — read plans, pull string, hold tolerance.</div></div>
-          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Form%20Setter" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+          <a class="tlink" href="apply/?p=Form%20Setter"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
         <div class="job">
           <div><h4>CDL Driver</h4><div class="jd">Class A/B — haul equipment, aggregates, and materials between our yard, plants, and jobsites.</div></div>
-          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20CDL%20Driver" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+          <a class="tlink" href="apply/?p=CDL%20Driver"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
         <div class="job">
           <div><h4>Concrete / Paving Foreman</h4><div class="jd">Run a self-performed paving or flatwork crew — production, layout, quality, and safety.</div></div>
-          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Concrete%20%2F%20Paving%20Foreman" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+          <a class="tlink" href="apply/?p=Concrete%20%2F%20Paving%20Foreman"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
         <div class="job">
           <div><h4>Utility Crew Foreman</h4><div class="jd">Lead underground crews on water, sewer &amp; storm scopes — trench safety, testing, and schedule.</div></div>
-          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20Utility%20Crew%20Foreman" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+          <a class="tlink" href="apply/?p=Utility%20Crew%20Foreman"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
         <div class="job">
           <div><h4>General Laborer</h4><div class="jd">No experience required — show up, work hard, and learn a trade. We promote from within.</div></div>
-          <a class="tlink" href="mailto:bids@estradaconcrete.com?subject=Application%20—%20General%20Laborer" data-bind="jobs-mail"><span class="ln">Apply</span><span class="arr">→</span></a>
+          <a class="tlink" href="apply/?p=General%20Laborer"><span class="ln">Apply</span><span class="arr">→</span></a>
         </div>
       </div>
     </div>
@@ -1440,10 +1465,20 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
           <div class="field"><label>Phone</label><input type="tel" name="Phone" placeholder="(___) ___-____"></div>
           <div class="field"><label>Email</label><input type="email" name="Email" placeholder="you@company.com" required></div>
         </div>
-        <div class="field"><label>Scope of work</label>
-          <select name="Scope of Work"><option>Paving</option><option>Underground Utilities</option><option>Site Prep &amp; Grading</option><option>Concrete Structures</option><option>Full Site Package</option></select>
+        <div class="frow">
+          <div class="field"><label>Project name</label><input type="text" name="Project Name" placeholder="e.g. 2026 Street Reconstruction, Pkg 2"></div>
+          <div class="field"><label>Bid date</label><input type="date" name="Bid Date"></div>
         </div>
-        <div class="field"><label>Project details</label><textarea name="Project Details" placeholder="Location, timeline, square/linear footage, plans available..."></textarea></div>
+        <div class="frow">
+          <div class="field"><label>Scope of work</label>
+            <select name="Scope of Work"><option>Paving</option><option>Underground Utilities</option><option>Site Prep &amp; Grading</option><option>Concrete Structures</option><option>Full Site Package</option></select>
+          </div>
+          <div class="field"><label>You are</label>
+            <select name="Requesting As"><option>City / Public Agency</option><option>General Contractor</option><option>Developer / Owner</option><option>Engineer</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="field"><label>Plan room link</label><input type="text" name="Plan Link" placeholder="CivCast, BidNet, Bonfire or file-share link"></div>
+        <div class="field"><label>Project details</label><textarea name="Project Details" placeholder="Location, timeline, key quantities, addenda..."></textarea></div>
         <button class="btn btn-red" style="width:100%;justify-content:center" type="submit" id="send">Send Bid Request →</button>
         <div class="note">Licensed &amp; insured · Serving the DFW metroplex</div>
       </form>
@@ -1577,9 +1612,8 @@ fetch('content/site-data.json').then(r=>r.ok?r.json():null).then(d=>{
     if(d.careers){if(d.careers.lead)document.getElementById('careers-lead').textContent=d.careers.lead;
       const jl=document.getElementById('jobs-list');
       if(jl&&Array.isArray(d.careers.jobs)){
-        const mail=c.email||c.emailDisplay||'';
         jl.innerHTML=d.careers.jobs.length?d.careers.jobs.map(j=>`<div class="job"><div><h4>${esc(j.title)}</h4><div class="jd">${esc(j.description||'')}</div></div>
-          <a class="tlink" href="mailto:${esc(mail)}?subject=${encodeURIComponent('Application — '+j.title)}"><span class="ln">Apply</span><span class="arr">→</span></a></div>`).join('')
+          <a class="tlink" href="apply/?p=${encodeURIComponent(j.title)}"><span class="ln">Apply</span><span class="arr">→</span></a></div>`).join('')
         :'<div class="none">No openings posted right now — but we\'re always looking for good hands. Email us your experience and we\'ll keep you in mind.</div>';}}
   }catch(err){console.warn('Content hydration issue:',err);}
 });
