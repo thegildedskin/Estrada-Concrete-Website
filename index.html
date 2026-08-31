@@ -797,6 +797,9 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
 .tm .av::after{content:"";position:absolute;right:-12px;bottom:-12px;width:26px;height:26px;background:var(--red);opacity:.55;transform:rotate(45deg)}
 .tm .nm{font-family:'Archivo';font-weight:700;font-size:.96rem;color:var(--ink);line-height:1.25}
 .tm .rl{color:var(--steel);font-size:.82rem;margin-top:4px}
+a.tm{text-decoration:none;cursor:pointer}
+a.tm .lk{margin-left:auto;flex:0 0 auto;width:26px;height:26px;border:1px solid var(--line);border-radius:2px;display:flex;align-items:center;justify-content:center;color:var(--steel-2);font-family:'Archivo';font-weight:800;font-size:.68rem;transition:.25s}
+a.tm:hover .lk{background:#0a66c2;border-color:#0a66c2;color:#fff}
 @media(max-width:1020px){.tm-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.tm-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:460px){.tm-grid{grid-template-columns:1fr}}
@@ -1219,7 +1222,7 @@ footer ul a:hover{color:var(--red-bright);padding-left:4px}
       <h2 style="margin-top:14px">The Estrada Team</h2>
       <p>Reconstruction and utility work is won and lost in the field. These are the people who run it — the same project managers and superintendents named on our prequalification submittals, backed by in-house estimating, purchasing, SWPPP and traffic-control support.</p>
     </div>
-    <div class="reveal d1">
+    <div class="reveal d1" id="team-groups">
       <p class="tm-sub">Leadership</p>
       <div class="tm-grid">
         <div class="tm"><div class="av" aria-hidden="true">PF</div><div><div class="nm">Phil Flink</div><div class="rl">Chief Executive Officer</div></div></div>
@@ -1608,6 +1611,18 @@ fetch('content/site-data.json').then(r=>r.ok?r.json():null).then(d=>{
       if(d.safety.lead)document.getElementById('safety-lead').textContent=d.safety.lead;
       if(Array.isArray(d.safety.credentials)&&d.safety.credentials.length){
         document.getElementById('cred-grid').innerHTML=d.safety.credentials.map(x=>`<div class="cred"><div class="cv">${esc(x.value)}</div><div class="ck">${esc(x.label)}</div></div>`).join('');}}
+    // ---- team ----
+    if(Array.isArray(d.team)&&d.team.length){
+      const tg=document.getElementById('team-groups');
+      if(tg){
+        const ini=n=>{const p=String(n).trim().split(/\s+/);return ((p[0]||' ')[0]+(p[p.length-1]||' ')[0]).toUpperCase()};
+        tg.innerHTML=d.team.map(g=>`<p class="tm-sub">${esc(g.group)}</p>
+        <div class="tm-grid">${(g.people||[]).map(m=>{
+          const inner=`<div class="av" aria-hidden="true">${esc(ini(m.name))}</div><div><div class="nm">${esc(m.name)}</div><div class="rl">${esc(m.role)}</div></div>`;
+          return m.linkedin?`<a class="tm" href="${esc(m.linkedin)}" target="_blank" rel="noopener" aria-label="${esc(m.name)} on LinkedIn">${inner}<span class="lk" aria-hidden="true">in</span></a>`
+            :`<div class="tm">${inner}</div>`;}).join('')}</div>`).join('');
+      }
+    }
     // ---- careers ----
     if(d.careers){if(d.careers.lead)document.getElementById('careers-lead').textContent=d.careers.lead;
       const jl=document.getElementById('jobs-list');

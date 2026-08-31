@@ -77,7 +77,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 24px 40px;color:var(--steel2);fo
 </div>
 
 <div class="wrap">
-  <div class="note"><b>How this works:</b> edit content below → click <b>Download site-data.json</b> → replace the file inside your site's <b>content/</b> folder → re-upload the whole site folder to Cloudflare Pages (Workers &amp; Pages → your project → Create new deployment). Changes go live in seconds. Nothing here changes the live site until you re-deploy.</div>
+  <div class="note"><b>How this works:</b> edit content below → click <b>Download site-data.json</b> → replace the file inside the repo's <b>content/</b> folder → commit and <b>git push</b> (or hand the file to Claude). Cloudflare builds and deploys automatically. Nothing here changes the live site until that push.</div>
   <div class="ok" id="okmsg">site-data.json downloaded — drop it into the content/ folder and re-deploy.</div>
 
   <div class="toolbar">
@@ -109,7 +109,7 @@ let D=null;
 const BLANK={company:{name:"",phone:"",email:"",emailDisplay:"",street:"",city:"",state:"TX",zip:""},
 seo:{siteUrl:"",title:"",description:"",ogTitle:"",ogDescription:""},
 form:{endpoint:"",subject:""},stats:[],projects:[],references:[],
-safety:{title:"",lead:"",credentials:[]},careers:{lead:"",jobs:[]}};
+safety:{title:"",lead:"",credentials:[]},careers:{lead:"",jobs:[]},team:[]};
 
 function setState(txt){document.getElementById('loadstate').textContent=txt}
 function loadFromSite(){
@@ -134,7 +134,7 @@ function download(){
 }
 
 /* ---------- UI ---------- */
-const TABS=[['company','Company Info'],['seo','SEO & Meta'],['form','Bid Form'],['stats','Stats Band'],['projects','Projects'],['references','References'],['safety','Safety & Prequal'],['careers','Careers']];
+const TABS=[['company','Company Info'],['seo','SEO & Meta'],['form','Bid Form'],['stats','Stats Band'],['projects','Projects'],['references','References'],['safety','Safety & Prequal'],['careers','Careers'],['team','Team & LinkedIn'],['media','Photos & Media'],['health','Site Health'],['kpis','KPIs & Accounts']];
 let active='company';
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function fld(label,path,val,{type='input',hint='',ph=''}={}){
@@ -207,7 +207,49 @@ function render(){
     ${D.careers.jobs.map((j,i)=>`<div class="item"><button class="btn danger small rm" onclick="D.careers.jobs.splice(${i},1);render()">Remove</button>
       ${fld('Job title','careers.jobs.'+i+'.title',j.title)}
       ${fld('Short description','careers.jobs.'+i+'.description',j.description||'',{type:'area',ph:'Experience level, pay range, schedule…'})}</div>`).join('')}
-    <button class="btn ghost addrow" onclick="D.careers.jobs.push({title:'',description:''});render()">+ Add opening</button>`
+    <button class="btn ghost addrow" onclick="D.careers.jobs.push({title:'',description:''});render()">+ Add opening</button>`,
+  team:()=>`<h2>Team & LinkedIn</h2><div class="sub">Drives the Estrada Team section. Paste a person's LinkedIn profile URL and their tile becomes a link with an "in" badge; leave blank for a plain tile. "Find" opens a LinkedIn search for the name + Estrada Concrete — only paste a profile you've confirmed is really them.</div>
+    ${(D.team||[]).map((g,gi)=>`<div class="item">
+      <button class="btn danger small rm" onclick="D.team.splice(${gi},1);render()">Remove group</button>
+      ${fld('Group heading','team.'+gi+'.group',g.group,{ph:'e.g. Project Management'})}
+      ${(g.people||[]).map((m,mi)=>`<div style="border-top:1px solid var(--line);padding-top:12px;margin-top:10px">
+      <div class="frow">
+        ${fld('Name','team.'+gi+'.people.'+mi+'.name',m.name)}
+        ${fld('Title','team.'+gi+'.people.'+mi+'.role',m.role)}
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto auto;align-items:end;gap:10px">
+        ${fld('LinkedIn profile URL','team.'+gi+'.people.'+mi+'.linkedin',m.linkedin||'',{ph:'https://www.linkedin.com/in/…'})}
+        <div class="field"><a class="btn ghost small" target="_blank" rel="noopener" href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent((m.name||'')+' Estrada Concrete')}">Find ↗</a></div>
+        <div class="field"><button class="btn danger small" onclick="D.team[${gi}].people.splice(${mi},1);render()">Remove</button></div>
+      </div></div>`).join('')}
+      <button class="btn ghost small addrow" onclick="D.team[${gi}].people.push({name:'',role:'',linkedin:''});render()">+ Add person</button>
+    </div>`).join('')}
+    <button class="btn ghost addrow" onclick="(D.team=D.team||[]).push({group:'',people:[]});render()">+ Add group</button>`,
+  media:()=>{
+    const imgs=[['assets/photos/hero.jpg','Hero background (also the video poster)'],['assets/photos/hero.mp4','Hero video loop — desktop only, muted'],['assets/photos/paving.jpg','Paving panel'],['assets/photos/utilities.jpg','Utilities panel'],['assets/photos/sitework.jpg','Site work panel'],['assets/photos/cap-paving.jpg','Capabilities tab — Paving'],['assets/photos/cap-utilities.jpg','Capabilities tab — Utilities'],['assets/photos/cap-sitework.jpg','Capabilities tab — Site prep'],['assets/photos/cap-concrete.jpg','Capabilities tab — Structures'],['assets/photos/sector-municipal.jpg','Sector — Municipal'],['assets/photos/sector-commercial.jpg','Sector — Commercial'],['assets/photos/sector-residential.jpg','Sector — Residential'],['assets/photos/sector-industrial.jpg','Sector — Industrial'],['assets/img/og-image.jpg','Social share card (keep exactly 1200×630)'],['assets/img/estrada-logo-light.png','Logo for dark backgrounds'],['assets/img/estrada-logo-dark.png','Logo for light backgrounds']];
+    return `<h2>Photos & Media</h2><div class="sub">The site is static files — photos ship with the code. To replace one: save the new photo with the <b>exact same filename</b>, drop it into the folder shown, commit &amp; push (or hand it to Claude). Live on the next deploy. Browsers cache images for a week, so hard-refresh (Ctrl+F5) to see a change.</div>
+    <div class="note"><b>Specs:</b> JPG, 1600px wide is plenty (hero 1920px), under 300KB each. Video: MP4, muted, under 3MB. <b>Growth-plan priority:</b> every photo below is AI-generated — replace with real jobsite shots from the photo day.</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
+    ${imgs.map(([f,label])=>`<div style="border:1px solid var(--line);background:#fbfaf8">
+      ${f.endsWith('.mp4')?`<div style="height:110px;display:flex;align-items:center;justify-content:center;color:var(--steel2);font-size:.8rem">▶ video</div>`:`<img src="../${f}" alt="" loading="lazy" style="width:100%;height:110px;object-fit:cover;display:block" onerror="this.replaceWith(Object.assign(document.createElement('div'),{textContent:'missing / not deployed',style:'height:110px;display:flex;align-items:center;justify-content:center;color:#a40e18;font-size:.78rem'}))">`}
+      <div style="padding:8px 10px"><div style="font-weight:600;font-size:.78rem;word-break:break-all">${f.split('/').pop()}</div><div style="font-size:.72rem;color:var(--steel)">${label}</div><div style="font-size:.7rem;color:var(--steel2)">${f.split('/').slice(0,-1).join('/')}/</div></div>
+    </div>`).join('')}</div>`;},
+  health:()=>`<h2>Site Health</h2><div class="sub">Live checks against this deployment — run after every deploy. Works only on the live site (not when this page is opened as a local file).</div>
+    <button class="btn" onclick="runHealth()">Run checks</button>
+    <div id="health-out" style="margin-top:18px"></div>`,
+  kpis:()=>`<h2>KPIs & Accounts</h2><div class="sub">The numbers that tell you whether the website is working, and where to see them. "Not set up" items are from the growth plan — each is a one-time setup.</div>
+    ${[['Bid requests & job applications','Arrive in your inbox by email — subjects start "New bid request" or "Job application". Count them weekly; this is the KPI that matters most.','https://formsubmit.co/','FormSubmit'],
+      ['Traffic & conversions','NOT SET UP — add Google Analytics 4 to see visits, sources, and which pages produce bid requests.','https://analytics.google.com/','Google Analytics 4'],
+      ['Google search performance','NOT SET UP — verify the domain in Search Console for queries, clicks and impressions, and to submit the sitemap.','https://search.google.com/search-console','Search Console'],
+      ['Edge traffic & cache','Available now under the estrada-concrete.com zone: requests, top URLs. Also where the www→apex Redirect Rule and cache purge live.','https://dash.cloudflare.com/','Cloudflare dashboard'],
+      ['Local visibility & reviews','NOT SET UP — claim the Business Profile, then track views, calls, direction requests and reviews. Highest-return item on the plan.','https://business.google.com/','Google Business Profile'],
+      ['LinkedIn company page','Post project awards; check follower growth and post reach monthly.','https://www.linkedin.com/company/estrada-concrete/','LinkedIn'],
+      ['Contractor directories','Claim/fix: Blue Book ProView 1373463 (unclaimed), duplicate Procore listing, Yelp still shows the old Carpenter Rd address.','https://www.thebluebook.com/iProView/1373463/','Blue Book']]
+    .map(([t,d2,url,ln])=>`<div class="item" style="padding:14px 18px"><b>${t}</b><div style="font-size:.85rem;color:var(--steel);margin:4px 0 8px">${d2}</div><a class="btn ghost small" target="_blank" rel="noopener" href="${url}">${ln} ↗</a></div>`).join('')}
+    <h3 style="margin:22px 0 8px">AI-visibility baseline — repeat every 6 weeks</h3>
+    <div class="sub">Ask ChatGPT, Perplexity and Google AI Mode each of these; record whether Estrada is named and whether the details are right.</div>
+    ${['Who does concrete street reconstruction in Mesquite, Texas?','Self-performing utility contractors near Hutchins, TX','Alley reconstruction contractors in Dallas','Concrete paving companies serving the DFW metroplex'].map(q=>`<div class="item" style="padding:10px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px"><span style="font-size:.9rem">${q}</span><button class="btn ghost small" onclick="navigator.clipboard.writeText('${q}')">Copy</button></div>`).join('')}`
+
   };
   P.innerHTML=views[active]();
   bindInputs();
@@ -220,6 +262,35 @@ function render(){
     });
   });
 }
+async function runHealth(){
+  const out=document.getElementById('health-out');
+  out.innerHTML='<p>Running…</p>';
+  const rows=[];
+  const row=(ok,name,detail)=>rows.push(`<div class="item" style="padding:10px 14px;border-left-color:${ok===true?'#1f6b3a':ok===false?'#a40e18':'#9a5b00'}"><b>${ok===true?'✓':ok===false?'✗':'!'} ${name}</b><div style="font-size:.82rem;color:var(--steel)">${detail}</div></div>`);
+  try{
+    const r=await fetch('/',{cache:'no-store'});const html=await r.text();
+    row(r.ok,'Homepage','HTTP '+r.status+' · '+(html.length/1024).toFixed(0)+' KB HTML');
+    row(!!r.headers.get('strict-transport-security'),'Security headers','_headers file '+(r.headers.get('strict-transport-security')?'active (HSTS present)':'NOT active — check _headers deployed'));
+    try{const m=html.match(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/);JSON.parse(m[1]);row(true,'Structured data','JSON-LD parses cleanly');}catch(e){row(false,'Structured data','JSON-LD failed to parse: '+e.message);}
+    const canon=(html.match(/rel="canonical" href="([^"]+)"/)||[])[1];
+    row(canon==='https://estrada-concrete.com/','Canonical URL',canon||'not found');
+    const tiles=(html.match(/class="tm"/g)||[]).length;row(tiles>=20,'Team section',tiles+' tiles in static HTML (site-data.json team overrides at load)');
+  }catch(e){row(false,'Homepage','Could not fetch — open this page on the live site. '+e.message);}
+  for(const [p,want404] of [['/.git/HEAD',true],['/.wrangler/tmp/deploy-wmeiS5/no-op-worker.js.map',true],['/robots.txt',false],['/sitemap.xml',false],['/llms.txt',false],['/apply/',false],['/content/site-data.json',false]]){
+    try{const r=await fetch(p,{cache:'no-store'});
+      if(want404)row(r.status===404,p,r.status===404?'404 — correctly hidden':'HTTP '+r.status+' — EXPOSED, check .assetsignore and purge Cloudflare cache');
+      else row(r.ok,p,'HTTP '+r.status);
+    }catch(e){row(want404?true:false,p,'unreachable ('+e.message+')');}
+  }
+  try{const r=await fetch('/content/site-data.json',{cache:'no-store'});const d2=await r.json();
+    const n=(d2.team||[]).reduce((a,g)=>a+(g.people||[]).length,0);
+    const li=(d2.team||[]).reduce((a,g)=>a+(g.people||[]).filter(m=>m.linkedin).length,0);
+    row(n>0,'Team data',n+' people, '+li+' with LinkedIn links');
+    row(!(d2.form&&d2.form.endpoint&&d2.form.endpoint.includes('@')),'Form endpoint',(d2.form&&d2.form.endpoint&&d2.form.endpoint.includes('@'))?'Email address visible in endpoint — swap to your FormSubmit alias to stop scrapers':'Using alias or none set');
+  }catch(e){}
+  out.innerHTML=rows.join('');
+}
+
 loadFromSite();
 </script>
 </body>

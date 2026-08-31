@@ -114,5 +114,147 @@
         "description": "No experience required — show up, work hard, and learn a trade. We promote from within."
       }
     ]
-  }
+  },
+  "team": [
+    {
+      "group": "Leadership",
+      "people": [
+        {
+          "name": "Phil Flink",
+          "role": "Chief Executive Officer",
+          "linkedin": ""
+        },
+        {
+          "name": "Chris Leach",
+          "role": "Chief Operating Officer",
+          "linkedin": "https://www.linkedin.com/in/chris-leach-ba0110222/"
+        },
+        {
+          "name": "Glenn Butterfield",
+          "role": "Chief Financial Officer",
+          "linkedin": ""
+        },
+        {
+          "name": "Les Sesler",
+          "role": "Director of Operations",
+          "linkedin": ""
+        },
+        {
+          "name": "Matt Luetge",
+          "role": "Chief Estimator",
+          "linkedin": "https://www.linkedin.com/in/matt-luetge-61221b178"
+        }
+      ]
+    },
+    {
+      "group": "Project Management",
+      "people": [
+        {
+          "name": "Marco Flores",
+          "role": "Project Manager",
+          "linkedin": ""
+        },
+        {
+          "name": "Javier Guzman",
+          "role": "Project Manager",
+          "linkedin": ""
+        },
+        {
+          "name": "Mike Nguyen",
+          "role": "Project Manager",
+          "linkedin": ""
+        },
+        {
+          "name": "Frank Estrada",
+          "role": "Project Manager",
+          "linkedin": ""
+        },
+        {
+          "name": "Hayden Parker",
+          "role": "Project Manager",
+          "linkedin": "https://www.linkedin.com/in/hayden-parker-875b33224"
+        },
+        {
+          "name": "Matt Clark",
+          "role": "Project Manager",
+          "linkedin": ""
+        }
+      ]
+    },
+    {
+      "group": "Field Supervision",
+      "people": [
+        {
+          "name": "Brandon Bishop",
+          "role": "Superintendent",
+          "linkedin": ""
+        },
+        {
+          "name": "Mike Woelfle",
+          "role": "Superintendent",
+          "linkedin": ""
+        },
+        {
+          "name": "Lorenzo Villagrana",
+          "role": "Superintendent",
+          "linkedin": ""
+        },
+        {
+          "name": "Jose Lopez",
+          "role": "Superintendent",
+          "linkedin": ""
+        },
+        {
+          "name": "Kendrick Robinson",
+          "role": "Superintendent",
+          "linkedin": ""
+        },
+        {
+          "name": "Martin Mascorro",
+          "role": "Superintendent",
+          "linkedin": ""
+        },
+        {
+          "name": "Jose Reyes",
+          "role": "Superintendent",
+          "linkedin": ""
+        },
+        {
+          "name": "Samuel Orellana",
+          "role": "Superintendent",
+          "linkedin": ""
+        },
+        {
+          "name": "Terry Contreras",
+          "role": "Superintendent",
+          "linkedin": ""
+        }
+      ]
+    },
+    {
+      "group": "Project Support",
+      "people": [
+        {
+          "name": "Andy Garcia",
+          "role": "Warehouse & Purchasing Manager",
+          "linkedin": ""
+        },
+        {
+          "name": "Elmer Gomez",
+          "role": "Project Coordination",
+          "linkedin": ""
+        },
+        {
+          "name": "Devon Leach",
+          "role": "SWPPP Inspector",
+          "linkedin": ""
+        },
+        {
+          "name": "Raul Figueroa",
+          "role": "Traffic Control",
+          "linkedin": ""
+        }
+      ]
+    }
+  ]
 }
