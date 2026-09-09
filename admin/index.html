@@ -274,7 +274,7 @@ async function runHealth(){
     try{const m=html.match(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/);JSON.parse(m[1]);row(true,'Structured data','JSON-LD parses cleanly');}catch(e){row(false,'Structured data','JSON-LD failed to parse: '+e.message);}
     const canon=(html.match(/rel="canonical" href="([^"]+)"/)||[])[1];
     row(canon==='https://estrada-concrete.com/','Canonical URL',canon||'not found');
-    const tiles=(html.match(/class="tm"/g)||[]).length;row(tiles>=20,'Team section',tiles+' tiles in static HTML (site-data.json team overrides at load)');
+    const tiles=(html.match(/class="tm"/g)||[]).length;row(tiles>=8,'Team section',tiles+' tiles in static HTML (site-data.json team overrides at load)');
   }catch(e){row(false,'Homepage','Could not fetch — open this page on the live site. '+e.message);}
   for(const [p,want404] of [['/.git/HEAD',true],['/.wrangler/tmp/deploy-wmeiS5/no-op-worker.js.map',true],['/robots.txt',false],['/sitemap.xml',false],['/llms.txt',false],['/apply/',false],['/content/site-data.json',false]]){
     try{const r=await fetch(p,{cache:'no-store'});

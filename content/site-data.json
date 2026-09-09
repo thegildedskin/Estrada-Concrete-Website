@@ -50,9 +50,9 @@
       "label": "Self-performed core scopes — excavation, deep utilities, structures and paving"
     },
     {
-      "value": "Own Plant",
+      "value": "10 Plants",
       "highlight": false,
-      "label": "Ready-mix supplied by our affiliate Estrada Ready Mix in Hutchins"
+      "label": "Estrada Ready Mix batch plants across North & Central Texas — plus asphalt, flex base and aggregate supply"
     }
   ],
   "references": [],
@@ -177,81 +177,6 @@
         {
           "name": "Matt Clark",
           "role": "Project Manager",
-          "linkedin": ""
-        }
-      ]
-    },
-    {
-      "group": "Field Supervision",
-      "people": [
-        {
-          "name": "Brandon Bishop",
-          "role": "Superintendent",
-          "linkedin": ""
-        },
-        {
-          "name": "Mike Woelfle",
-          "role": "Superintendent",
-          "linkedin": ""
-        },
-        {
-          "name": "Lorenzo Villagrana",
-          "role": "Superintendent",
-          "linkedin": ""
-        },
-        {
-          "name": "Jose Lopez",
-          "role": "Superintendent",
-          "linkedin": ""
-        },
-        {
-          "name": "Kendrick Robinson",
-          "role": "Superintendent",
-          "linkedin": ""
-        },
-        {
-          "name": "Martin Mascorro",
-          "role": "Superintendent",
-          "linkedin": ""
-        },
-        {
-          "name": "Jose Reyes",
-          "role": "Superintendent",
-          "linkedin": ""
-        },
-        {
-          "name": "Samuel Orellana",
-          "role": "Superintendent",
-          "linkedin": ""
-        },
-        {
-          "name": "Terry Contreras",
-          "role": "Superintendent",
-          "linkedin": ""
-        }
-      ]
-    },
-    {
-      "group": "Project Support",
-      "people": [
-        {
-          "name": "Andy Garcia",
-          "role": "Warehouse & Purchasing Manager",
-          "linkedin": ""
-        },
-        {
-          "name": "Elmer Gomez",
-          "role": "Project Coordination",
-          "linkedin": ""
-        },
-        {
-          "name": "Devon Leach",
-          "role": "SWPPP Inspector",
-          "linkedin": ""
-        },
-        {
-          "name": "Raul Figueroa",
-          "role": "Traffic Control",
           "linkedin": ""
         }
       ]

@@ -21,8 +21,12 @@
 ## What Estrada does
 
 Estrada self-performs its core scopes with its own crews and a 95-unit, $4.6M equipment
-fleet, rather than subcontracting them out. Ready-mix concrete is supplied by an affiliate
-plant, Estrada Ready Mix Concrete, in Hutchins.
+fleet, rather than subcontracting them out. Materials come from our affiliate Estrada Ready
+Mix (https://www.estradareadymix.com/): ten ready-mix batch-plant locations across North and
+Central Texas (Hutchins–Ennis area, Fort Worth area including Euless and Crowley, southern
+DFW corridor from Waxahachie to Alvarado and Scurry, and Hillsboro), an asphalt plant near
+Hutchins, mass-produced flex base, and aggregate supply — available to Estrada projects and
+to outside contractors.
 
 - Street and alley reconstruction (full-depth, including demolition and subgrade stabilization)
 - Concrete paving — roadways, parking lots, overlays, approaches and drives
@@ -33,6 +37,7 @@ plant, Estrada Ready Mix Concrete, in Hutchins.
 - Site preparation, excavation, earthwork and grading
 - Curb and gutter, sidewalks and ADA barrier-free ramps
 - Traffic control, phasing and resident coordination on occupied blocks
+- Materials supply: ready-mix concrete, asphalt, flex base and aggregates via Estrada Ready Mix
 
 ## Track record
 
