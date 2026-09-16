@@ -1,2 +1,11 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Keep repo files LF everywhere (site is deployed from git; Windows autocrlf would otherwise warn/convert)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.mp4 binary
+*.pdf binary
+*.ico binary
+*.woff binary
+*.woff2 binary
