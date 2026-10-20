@@ -71,6 +71,18 @@ button[type=submit]:focus-visible{outline:2px solid var(--ink);outline-offset:2p
 .after b{color:var(--ink)}
 .phone-alt{margin-top:16px;text-align:center;font-size:.95rem;color:var(--steel)}
 .phone-alt a{color:var(--red);font-weight:600}
+.drv[hidden]{display:none}
+.drv{border-top:1px solid var(--line);margin-top:10px}
+.req-note{background:var(--concrete);border-left:3px solid var(--red);padding:12px 14px;font-size:.9rem;color:var(--ink);margin:6px 0 14px}
+.warn{display:none;background:#fbeaec;color:#8c0b14;border:1px solid #efc4c9;padding:10px 12px;font-size:.88rem;margin:-4px 0 14px;border-radius:2px}
+.warn.show{display:block}
+.consent{background:var(--concrete-2);border:1px solid var(--line);padding:16px 18px;font-size:.92rem;margin:6px 0 16px;max-height:none}
+.consent p+p{margin-top:10px}
+.consent .es{color:var(--steel);font-size:.86rem;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-family:'Barlow';font-weight:600;font-size:.95rem;text-transform:none;letter-spacing:0;margin-bottom:16px;cursor:pointer}
+.agree input{accent-color:var(--red);width:18px;height:18px;margin-top:3px;flex:none}
+.agree .es{display:block;font-weight:500;color:var(--steel);font-size:.85rem}
+input[readonly]{color:var(--steel)}
 footer{background:var(--asphalt);color:var(--steel-2);padding:22px 0;font-size:.85rem}
 footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 footer a{color:#fff;text-decoration:none}
@@ -168,9 +180,34 @@ footer a{color:#fff;text-decoration:none}
         </div>
       </fieldset>
 
+      <fieldset class="drv" id="drv-quals" hidden disabled>
+        <legend>Driver qualifications <span class="es">Requisitos para chofer</span></legend>
+        <div class="req-note"><b>CDL Driver requirement:</b> valid Class A or B CDL and at least <b>2 years</b> of verifiable commercial driving experience.<br><span style="color:var(--steel)">Requisito: CDL Clase A o B vigente y por lo menos <b>2 años</b> de experiencia comprobable manejando vehículos comerciales.</span></div>
+        <div class="frow">
+          <div class="field">
+            <label>CDL class <span class="es">· Clase de CDL</span></label>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="CDL Class" value="Class A" required> Class A · Clase A</label>
+              <label class="choice"><input type="radio" name="CDL Class" value="Class B"> Class B · Clase B</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cdl-years">Years of CDL driving experience <span class="es">· Años de experiencia con CDL</span></label>
+            <select id="cdl-years" name="Years of CDL Driving Experience" required>
+              <option value="">Select · Seleccione</option>
+              <option>Less than 2 years · Menos de 2 años</option>
+              <option>2–4 years · 2–4 años</option>
+              <option>5–9 years · 5–9 años</option>
+              <option>10+ years · 10+ años</option>
+            </select>
+          </div>
+        </div>
+        <div class="warn" id="yrs-warn">The CDL Driver position requires at least 2 years of driving experience. You can still send this application, or choose another position above. · El puesto de Chofer CDL requiere por lo menos 2 años de experiencia. Puede enviar esta solicitud de todos modos o escoger otro puesto arriba.</div>
+      </fieldset>
+
       <fieldset>
         <legend>Previous experience <span class="es">Experiencia previa</span></legend>
-        <p class="hint">Most recent job first. No résumé needed. · El trabajo más reciente primero. No se necesita currículum.</p>
+        <p class="hint">List your jobs for at least the last 2 years, most recent first. No résumé needed. · Anote sus trabajos de por lo menos los últimos 2 años, el más reciente primero. No se necesita currículum.</p>
         <details open>
           <summary>Job 1 · Trabajo 1</summary>
           <div class="inner">
@@ -237,10 +274,34 @@ footer a{color:#fff;text-decoration:none}
         </div>
       </fieldset>
 
+      <fieldset class="drv" id="drv-mvr" hidden disabled>
+        <legend>MVR release consent form <span class="es">Autorización para obtener su récord de manejo (MVR)</span></legend>
+        <p class="hint">Required for all drivers. · Requerido para todos los choferes.</p>
+        <div class="consent">
+          <p>In conjunction with my employment at Estrada Concrete Company LLC / Estrada Ready Mix (&ldquo;the company&rdquo;), I, the employee/applicant named below, consent to the release of my Motor Vehicle Record (MVR) to the company. I understand the company will use these records to evaluate my suitability to fulfill driving duties that may be related to the position for which I am applying. I also consent to the review, evaluation, and other use of any MVR I may have provided to the company.</p>
+          <p>This consent is given in satisfaction of Public Law 18 USC 2721 et seq., &ldquo;Federal Drivers Privacy Protection Act&rdquo;, and is intended to constitute &ldquo;written consent&rdquo; as required by this Act.</p>
+          <p class="es">Traducción: En relación con mi empleo en Estrada Concrete Company LLC / Estrada Ready Mix (&ldquo;la compañía&rdquo;), yo, el empleado/solicitante nombrado abajo, autorizo que se entregue mi Récord de Manejo (MVR) a la compañía. Entiendo que la compañía usará estos registros para evaluar si soy apto para las tareas de manejo relacionadas con el puesto que solicito. También autorizo la revisión, evaluación y otro uso de cualquier MVR que haya entregado a la compañía. Esta autorización se otorga conforme a la ley federal 18 USC 2721 y siguientes (&ldquo;Federal Drivers Privacy Protection Act&rdquo;) y constituye el &ldquo;consentimiento por escrito&rdquo; que requiere dicha ley. La versión en inglés es la que rige.</p>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="mvr-dob">Date of birth <span class="es">· Fecha de nacimiento</span></label><input type="date" id="mvr-dob" name="MVR - Date of Birth" required></div>
+          <div class="field"><label for="mvr-ssn4">Social Security number (last 4 digits) <span class="es">· Últimos 4 dígitos del Seguro Social</span></label><input type="text" id="mvr-ssn4" name="MVR - SSN Last 4" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="off" placeholder="1234" required></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="mvr-dl">Driver's license number <span class="es">· Número de licencia</span></label><input type="text" id="mvr-dl" name="MVR - Drivers License Number" autocomplete="off" required></div>
+          <div class="field"><label for="mvr-exp">License expiration date <span class="es">· Fecha de vencimiento</span></label><input type="date" id="mvr-exp" name="MVR - License Expiration Date" required></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="mvr-state">Issuing state <span class="es">· Estado que la expidió</span></label><input type="text" id="mvr-state" name="MVR - Issuing State" placeholder="TX" maxlength="20" required></div>
+          <div class="field"><label for="mvr-date">Date <span class="es">· Fecha</span></label><input type="text" id="mvr-date" name="MVR - Date Signed" readonly></div>
+        </div>
+        <div class="field"><label for="mvr-sig">Signature — type your full legal name <span class="es">· Firma — escriba su nombre legal completo</span></label><input type="text" id="mvr-sig" name="MVR - Employee/Applicant Signature (typed)" autocomplete="name" required></div>
+        <label class="agree"><input type="checkbox" name="MVR - Consent Given" value="Yes — applicant agreed to MVR release consent (18 USC 2721)" required><span>I have read the MVR release consent above and agree. Typing my name is my electronic signature.<span class="es">He leído la autorización y estoy de acuerdo. Escribir mi nombre equivale a mi firma electrónica.</span></span></label>
+      </fieldset>
+
       <button type="submit" id="send">Send application · Enviar solicitud &rarr;</button>
 
       <div class="after">
-        <b>What happens next · Qué sigue:</b> we review applications daily and call qualified applicants, usually within two business days. If hired, payroll and tax paperwork (W-4, I-9) is completed in person at our Hutchins office — we will never ask for your Social Security number on this website. · Revisamos solicitudes a diario. Si es contratado, los documentos de nómina se completan en persona en nuestra oficina de Hutchins — nunca le pediremos su número de Seguro Social en este sitio web.
+        <b>What happens next · Qué sigue:</b> we review applications daily and call qualified applicants, usually within two business days. If hired, payroll and tax paperwork (W-4, I-9) is completed in person at our Hutchins office — we will never ask for your full Social Security number on this website (driver applicants give only the last 4 digits for the MVR check). · Revisamos solicitudes a diario. Si es contratado, los documentos de nómina se completan en persona en nuestra oficina de Hutchins — nunca le pediremos su número completo de Seguro Social en este sitio web (los choferes solo dan los últimos 4 dígitos para revisar el MVR).
       </div>
       <p class="phone-alt">Prefer to apply by phone? · ¿Prefiere aplicar por teléfono?<br><a href="tel:+19726855477">(972) 685-5477</a> · Mon–Fri · Lun–Vie · 7:00a–5:00p</p>
     </form>
@@ -264,8 +325,20 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   for(const o of sel.options){ if(o.textContent.toLowerCase().startsWith(p.toLowerCase())){ sel.value=o.value; break; } }
   document.getElementById('subj').value='Job application — '+p;
 })();
+// Driver-only sections (qualifications + MVR consent): shown, required and submitted only for CDL Driver
+function today(){const d=new Date();return (d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear();}
+function syncDriver(){
+  const isDrv=/^CDL Driver/i.test(document.getElementById('position').value);
+  document.querySelectorAll('.drv').forEach(fs=>{fs.hidden=!isDrv;fs.disabled=!isDrv;});
+  document.getElementById('mvr-date').value=today();
+}
+document.getElementById('cdl-years').addEventListener('change',e=>{
+  document.getElementById('yrs-warn').classList.toggle('show',/^Less/.test(e.target.value));
+});
+syncDriver();
 document.getElementById('position').addEventListener('change',e=>{
   document.getElementById('subj').value='Job application — '+e.target.value.split('·')[0].trim();
+  syncDriver();
 });
 const f=document.getElementById('appform');
 f.addEventListener('submit',async e=>{
@@ -276,7 +349,7 @@ f.addEventListener('submit',async e=>{
   const orig=btn.textContent;btn.textContent='Sending… · Enviando…';btn.disabled=true;
   try{
     const r=await fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)});
-    if(r.ok){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});f.reset();}
+    if(r.ok){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});f.reset();syncDriver();document.getElementById('yrs-warn').classList.remove('show');}
     else err.classList.add('show');
   }catch(_){err.classList.add('show');}
   btn.textContent=orig;btn.disabled=false;
