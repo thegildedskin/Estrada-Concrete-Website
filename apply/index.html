@@ -341,17 +341,43 @@ document.getElementById('position').addEventListener('change',e=>{
   syncDriver();
 });
 const f=document.getElementById('appform');
+const HR_API='https://apex.estrada-concrete.com/api/hr/apply';
+function mdy(v){const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||'');return m?m[2]+'/'+m[3]+'/'+m[1]:(v||'');}
+function val(n){const el=f.elements[n];if(!el)return '';if(el instanceof RadioNodeList)return el.value||'';return (el.value||'').trim();}
+function hrPayload(){
+  const full=val('Name').split(/\s+/);const first=full.shift()||'';const last=full.join(' ')||'-';
+  const pos=val('Position').split('·')[0].trim();
+  const isDrv=/^CDL Driver/i.test(val('Position'));
+  const work=[1,2,3].map(i=>({title:val('Job '+i+' - Title'),company:val('Job '+i+' - Company'),from:val('Job '+i+' - Start'),to:val('Job '+i+' - End'),duties:val('Job '+i+' - Duties'),reason:val('Job '+i+' - Reason for leaving')})).filter(w=>w.title||w.company);
+  const refs=[1,2,3].map(i=>({name:val('Reference '+i+' - Name'),phone:val('Reference '+i+' - Phone'),relationship:val('Reference '+i+' - Relationship')})).filter(r=>r.name);
+  const answers={hours:val('Hours'),pay:val('Desired Pay'),authorized:val('Authorized to work in US'),city:val('City/State'),work:work,references:refs};
+  let pii=null;
+  if(isDrv){
+    answers.driver={cdl_class:val('CDL Class'),years:val('Years of CDL Driving Experience').split('·')[0].trim()};
+    answers.mvr={agreed:!!(f.elements['MVR - Consent Given']&&f.elements['MVR - Consent Given'].checked),name:val('MVR - Employee/Applicant Signature (typed)'),date:val('MVR - Date Signed'),company:'Estrada Concrete Company LLC',text_version:'18 USC 2721 MVR release v2026-10'};
+    pii={dob:mdy(val('MVR - Date of Birth')),ssn4:val('MVR - SSN Last 4'),dl_number:val('MVR - Drivers License Number'),dl_exp:mdy(val('MVR - License Expiration Date')),dl_state:val('MVR - Issuing State').toUpperCase()};
+  }
+  return {company:'concrete',position:pos,first_name:first,last_name:last,phone:val('Phone'),email:val('Email'),city:val('City/State'),source:'estrada-concrete.com',lang:(navigator.language||'').toLowerCase().startsWith('es')?'es':'en',answers:answers,pii:pii,_hp:val('_honey')};
+}
 f.addEventListener('submit',async e=>{
   e.preventDefault();
   if(!f.reportValidity()) return;
   const ok=document.getElementById('toast-ok'),err=document.getElementById('toast-err'),btn=document.getElementById('send');
   ok.classList.remove('show');err.classList.remove('show');
   const orig=btn.textContent;btn.textContent='Sending… · Enviando…';btn.disabled=true;
+  let sent=false;
+  // 1) Estrada HR dashboard (all companies' applications in one place)
   try{
-    const r=await fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)});
-    if(r.ok){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});f.reset();syncDriver();document.getElementById('yrs-warn').classList.remove('show');}
-    else err.classList.add('show');
-  }catch(_){err.classList.add('show');}
+    const r=await fetch(HR_API,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(hrPayload())});
+    sent=r.ok;
+    if(!r.ok && r.status>=400 && r.status<500){ const d=await r.json().catch(()=>({})); if(d.message){ err.textContent=d.message; err.classList.add('show'); btn.textContent=orig;btn.disabled=false; return; } }
+  }catch(_){}
+  // 2) fallback: email via FormSubmit if the dashboard can't be reached
+  if(!sent){
+    try{ const r=await fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)}); sent=r.ok; }catch(_){}
+  }
+  if(sent){ok.classList.add('show');ok.scrollIntoView({behavior:'smooth',block:'center'});f.reset();syncDriver();document.getElementById('yrs-warn').classList.remove('show');}
+  else err.classList.add('show');
   btn.textContent=orig;btn.disabled=false;
 });
 </script>
