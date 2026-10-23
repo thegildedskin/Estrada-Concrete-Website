@@ -69,7 +69,7 @@
     {
      "@type": "Organization",
      "name": "Estrada Ready Mix",
-     "url": "https://readymix.estrada-concrete.com/",
+     "url": "https://www.estradareadymix.com/",
      "description": "Affiliate ready-mix producer with thirteen batch plants across North and Central Texas, flex base production and aggregate supply.",
      "address": {"@type": "PostalAddress", "addressLocality": "Hutchins", "addressRegion": "TX", "addressCountry": "US"}
     },
@@ -577,13 +577,14 @@ header.solid .menu-btn span{background:var(--ink)}
 .hero .scene svg{width:100%;height:100%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,16,20,.55) 0%,rgba(15,16,20,.15) 38%,rgba(15,16,20,.55) 72%,rgba(15,16,20,.92) 100%)}
 .hero .wrap{position:relative;z-index:3;padding-bottom:84px;padding-top:140px;width:100%}
-.hero .label{margin-bottom:22px;display:inline-block}
+.hero .label{margin-bottom:22px;display:inline-block;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6),0 2px 16px rgba(0,0,0,.55)}
 .hero h1{font-size:clamp(2.9rem,8vw,7rem);font-weight:900;letter-spacing:-.03em;line-height:.96}
 .hero h1 span{color:var(--red-bright)}
 .hero p{font-size:clamp(1.05rem,1.6vw,1.3rem);font-weight:300;color:#dcdee2;max-width:620px;margin:26px 0 36px}
 .hero .row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.6);font-family:'Archivo';font-size:.66rem;letter-spacing:.25em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
 .scroll-hint .ln{width:1px;height:34px;background:linear-gradient(#fff,transparent);animation:drop 1.8s infinite}
+@media(max-width:760px){.scroll-hint{display:none}}
 @keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* ---------- panels (stacked photo sections) ---------- */
@@ -628,7 +629,7 @@ header.solid .menu-btn span{background:var(--ink)}
 .stats .s .n{font-family:'Archivo';font-weight:900;font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:1;color:#fff;letter-spacing:-.02em}
 .stats .s .n em{color:var(--red-bright);font-style:normal}
 .stats .s .l{color:#9aa0a8;font-size:.92rem;margin-top:12px;font-weight:400}
-@media(max-width:760px){.stats .grid{grid-template-columns:1fr 1fr;gap:34px 0}}
+@media(max-width:760px){.stats .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 0}.stats .s{min-width:0;padding:8px 16px}.stats .s .n{font-size:clamp(1.8rem,8.4vw,2.4rem)}.stats .s .l{font-size:.86rem;overflow-wrap:anywhere}}
 
 /* ---------- capabilities (tabs) ---------- */
 .caps{padding:120px 0;background:var(--concrete-2)}
@@ -915,7 +916,7 @@ a.tm:hover .lk{background:#0a66c2;border-color:#0a66c2;color:#fff}
 <section class="hero" id="top">
   <div class="scene">
     <img class="photo" src="assets/photos/hero-paving.jpg?v=2" alt="" fetchpriority="high" decoding="async" onerror="this.remove()">
-    <video class="photo hero-video" autoplay muted loop playsinline preload="none" poster="assets/photos/hero-paving.jpg?v=2" data-src="assets/photos/hero-paving.mp4?v=2"></video>
+    <video class="photo hero-video" autoplay muted loop playsinline preload="none" poster="assets/photos/hero-paving.jpg?v=2" data-src="assets/photos/hero-paving.mp4?v=3"></video>
     <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
         <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
@@ -1006,11 +1007,11 @@ a.tm:hover .lk{background:#0a66c2;border-color:#0a66c2;color:#fff}
       </div>
       <div class="efam-arrow" aria-hidden="true"></div>
       <div class="efam-col efam-pair">
-        <a class="efam-co" href="https://readymix.estrada-concrete.com/" data-co="readymix">
+        <a class="efam-co" href="https://www.estradareadymix.com/" data-co="readymix">
           <img src="family/readymix.jpg?v=2" alt="White Estrada Ready Mix trucks loading at the batch plant" loading="lazy" width="800" height="446">
           <span class="efam-here">You're here</span>
           <span class="efam-name">Estrada Ready Mix</span>
-          <span class="efam-role">Batches concrete at 14 plants and delivers it to the pour.</span>
+          <span class="efam-role">Batches concrete at 13 plants and delivers it to the pour.</span>
         </a>
         <a class="efam-co" href="https://estrada-asphalt.com/" data-co="asphalt">
           <img src="family/asphalt.jpg?v=2" alt="Black Estrada Asphalt truck loading hot mix under the plant silo" loading="lazy" width="800" height="446">
@@ -1038,7 +1039,7 @@ a.tm:hover .lk{background:#0a66c2;border-color:#0a66c2;color:#fff}
 <section class="panel dark-l" id="panel-paving">
   <div class="scene">
     <img class="photo" src="assets/photos/panel-paving.jpg?v=2" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-    <video class="photo eu-lazy" muted loop playsinline preload="none" poster="assets/photos/panel-paving.jpg?v=2" data-src="assets/photos/panel-paving.mp4?v=2" aria-hidden="true"></video>
+    <video class="photo eu-lazy" muted loop playsinline preload="none" poster="assets/photos/panel-paving.jpg?v=2" data-src="assets/photos/panel-paving.mp4?v=3" aria-hidden="true"></video>
     <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs><linearGradient id="pv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#23252c"/><stop offset="1" stop-color="#131419"/></linearGradient></defs>
       <rect width="1440" height="760" fill="url(#pv)"/>
@@ -1075,7 +1076,7 @@ a.tm:hover .lk{background:#0a66c2;border-color:#0a66c2;color:#fff}
 <section class="panel dark-r" id="panel-underground">
   <div class="scene">
     <img class="photo" src="assets/photos/panel-utilities.jpg?v=2" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-    <video class="photo eu-lazy" muted loop playsinline preload="none" poster="assets/photos/panel-utilities.jpg?v=2" data-src="assets/photos/panel-utilities.mp4?v=2" aria-hidden="true"></video>
+    <video class="photo eu-lazy" muted loop playsinline preload="none" poster="assets/photos/panel-utilities.jpg?v=2" data-src="assets/photos/panel-utilities.mp4?v=3" aria-hidden="true"></video>
     <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
         <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2722"/><stop offset="1" stop-color="#16140f"/></linearGradient>
@@ -1117,7 +1118,7 @@ a.tm:hover .lk{background:#0a66c2;border-color:#0a66c2;color:#fff}
 <section class="panel dark-l" id="panel-site">
   <div class="scene">
     <img class="photo" src="assets/photos/panel-site.jpg?v=2" alt="" loading="lazy" decoding="async" onerror="this.remove()">
-    <video class="photo eu-lazy" muted loop playsinline preload="none" poster="assets/photos/panel-site.jpg?v=2" data-src="assets/photos/panel-site.mp4?v=2" aria-hidden="true"></video>
+    <video class="photo eu-lazy" muted loop playsinline preload="none" poster="assets/photos/panel-site.jpg?v=2" data-src="assets/photos/panel-site.mp4?v=3" aria-hidden="true"></video>
     <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs><linearGradient id="st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#252830"/><stop offset="1" stop-color="#121318"/></linearGradient></defs>
       <rect width="1440" height="760" fill="url(#st)"/>
@@ -1479,7 +1480,7 @@ a.tm:hover .lk{background:#0a66c2;border-color:#0a66c2;color:#fff}
       </div>
       <div class="fq">
         <h3>Does Estrada supply its own concrete and materials?</h3>
-        <p>Yes. Our affiliate <a href="https://readymix.estrada-concrete.com/" target="_blank" rel="noopener">Estrada Ready Mix</a> operates thirteen batch plants across North and Central Texas — the Hutchins–Ennis area including Mesquite, the Fort Worth area including Euless and Crowley, the southern DFW corridor from Waxahachie to Alvarado and Scurry, and Hillsboro — plus an asphalt plant near Hutchins. We also mass-produce flex base and supply aggregates. Owning the material supply chain gives us control over mix design, delivery timing and pour schedules, and lets us quote ready-mix, asphalt, flex base and aggregates to outside contractors.</p>
+        <p>Yes. Our affiliate <a href="https://www.estradareadymix.com/" target="_blank" rel="noopener">Estrada Ready Mix</a> operates thirteen batch plants across North and Central Texas — the Hutchins–Ennis area including Mesquite, the Fort Worth area including Euless and Crowley, the southern DFW corridor from Waxahachie to Alvarado and Scurry, and Hillsboro — plus an asphalt plant near Hutchins. We also mass-produce flex base and supply aggregates. Owning the material supply chain gives us control over mix design, delivery timing and pour schedules, and lets us quote ready-mix, asphalt, flex base and aggregates to outside contractors.</p>
       </div>
       <div class="fq">
         <h3>How do I request a bid or a prequalification package?</h3>
@@ -1581,7 +1582,7 @@ a.tm:hover .lk{background:#0a66c2;border-color:#0a66c2;color:#fff}
       </div>
       <div><h5>Capabilities</h5><ul><li><a href="#capabilities">Paving</a></li><li><a href="#capabilities">Underground Utilities</a></li><li><a href="#capabilities">Site Prep &amp; Grading</a></li><li><a href="#capabilities">Concrete Structures</a></li></ul></div>
       <div><h5>Company</h5><ul><li><a href="#why">Who We Are</a></li><li><a href="#projects">Projects</a></li><li><a href="#team">Our Team</a></li><li><a href="#sectors">Markets</a></li><li><a href="#area">Service Area</a></li><li><a href="#safety">Safety &amp; Prequal</a></li><li><a href="#careers">Careers</a></li><li><a href="#partners">Subs &amp; Vendors</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Request a Bid</a></li></ul></div>
-      <div><h5>Connect</h5><ul><li><a href="tel:+19726855477">(972) 685-5477</a></li><li><a href="mailto:bids@estradaconcrete.com">bids@estradaconcrete.com</a></li><li><a href="https://readymix.estrada-concrete.com/" target="_blank" rel="noopener">Estrada Ready Mix ↗</a></li><li><a href="https://estrada-asphalt.com/" target="_blank" rel="noopener">Estrada Asphalt ↗</a></li><li id="f-street">650 Skyline Drive</li><li id="f-city">Hutchins, TX 75141</li></ul></div>
+      <div><h5>Connect</h5><ul><li><a href="tel:+19726855477">(972) 685-5477</a></li><li><a href="mailto:bids@estradaconcrete.com">bids@estradaconcrete.com</a></li><li><a href="https://www.estradareadymix.com/" target="_blank" rel="noopener">Estrada Ready Mix ↗</a></li><li><a href="https://estrada-asphalt.com/" target="_blank" rel="noopener">Estrada Asphalt ↗</a></li><li id="f-street">650 Skyline Drive</li><li id="f-city">Hutchins, TX 75141</li></ul></div>
     </div>
     <div class="f-bot">
       <span>© <span id="yr"></span> Estrada Concrete Company LLC · Licensed &amp; Insured · All rights reserved.</span>
